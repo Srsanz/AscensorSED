@@ -47,7 +47,9 @@ begin
         b3_tb <= '1';
         wait for 50 ns;
         assert piso_deseado_tb = "11" report "Error en el Test Case 4" severity failure;
-
+        assert false -- Forzar fallo
+        report "[SUCCESS]: Fin Test"
+        severity failure;
         wait;
     end process;
 end tb_arch;
