@@ -10,3 +10,7 @@ port(
       led: std_logic_vector(15 downto 0)
     );
 end top;
+
+architecture behavioral of top is
+begin
+end architecture;
