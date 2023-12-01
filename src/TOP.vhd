@@ -12,5 +12,6 @@ port(
 end top;
 
 architecture behavioral of top is
+
 begin
 end architecture;

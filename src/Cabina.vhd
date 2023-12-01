@@ -20,5 +20,12 @@ entity Cabina is
 end Cabina; 
 
 architecture Behavioral of Cabina is
+component Botonera
+port(
+        b0,b1,b2,b3: in std_logic;
+        piso_deseado: out std_logic_vector(1 downto 0)
+    );
+end component;
 begin
+piso_seleccion: botonera port map (b0 => b0, b1 => b1,b2 => b2, b3 => b3, piso_deseado => piso_destino);
 end architecture;
