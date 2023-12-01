@@ -12,9 +12,9 @@ entity Cabina is
         piso_destino, piso, abierto_cerrado: out std_logic_vector(1 downto 0);
         emer: out std_logic;
         led: out std_logic_vector(15 downto 0);
-        --led16,led17: out std_logic_vecor (2 downto 0);
+        --led16,led17: out std_logic_vecor (2 downto 0); usad lo que querais para programar. para asignar vector a señal fijaos en la botonera
         led16_r,led16_g,led16_b,led17_r,led17_g,led17_b: out std_logic;
-        --segment: out std_logic_vector(7 donwto 0);
+        --segment: out std_logic_vector(7 donwto 0);  usad lo que querais para programar. para asignar vector a señal fijaos en la botonera
          ca, cb, cc, cd, ce, cf, cg: out std_logic       
         );
 end Cabina; 
