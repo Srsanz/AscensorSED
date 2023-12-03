@@ -26,6 +26,22 @@ port(
         piso_deseado: out std_logic_vector(1 downto 0)
     );
 end component;
+component Puertas
+        generic (n_leds:integer:=8);
+Port (
+        abrir_cerrar: in std_logic_vector (1 downto 0);
+        clk: in std_logic;        
+        abierto_cerrado: out std_logic_vector (1 downto 0);
+        led: out std_logic_vector (15 downto 0)       
+      );
+end component;
 begin
-piso_seleccion: botonera port map (b0 => b0, b1 => b1,b2 => b2, b3 => b3, piso_deseado => piso_destino);
+inst_botonera: botonera port map (b0 => b0, b1 => b1,b2 => b2, b3 => b3, piso_deseado => piso_destino);
+inst_puertas: puertas
+    port map(
+                abrir_cerrar => abre_cierra,
+                clk => clk,
+                abierto_cerrado => abierto_cerrado,
+                led => led
+            );
 end architecture;
