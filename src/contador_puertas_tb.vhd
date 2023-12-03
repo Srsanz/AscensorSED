@@ -23,7 +23,7 @@ begin
         port map (
             abre_cierra      => abre_cierra_tb,
             clk                 => clk,
-            emer             => emer_tb,  -- Agrega el señal emer_tb en la instancia
+            
             abierto_cerrado  => abierto_cerrado_tb,
             count            => count_tb
         );
