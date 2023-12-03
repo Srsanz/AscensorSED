@@ -11,7 +11,7 @@ architecture tb_architecture of Testbench_Contador_puertas is
     signal clk              : std_logic := '0';
     signal emer_tb             : std_logic := '0';
     signal abierto_cerrado_tb  : std_logic_vector(1 downto 0);
-    signal count_tb            : std_logic_vector(7 downto 0);
+    signal count_tb            : integer range 0 to 8;
 
     constant CLOCK_PERIOD   : time := 10 ns; -- constante de tiempo que se utilizará
 begin
