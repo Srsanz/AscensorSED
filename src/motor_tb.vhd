@@ -13,7 +13,7 @@ ARCHITECTURE behavior OF motor_tb IS
             reset    : IN  STD_LOGIC;
             STROBE_2 : IN  STD_LOGIC;
             CLK      : IN  STD_LOGIC;
-            PISO     : INOUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+            PISO     : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
             SEGMENT  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
             LED16    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
             LED17    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
@@ -21,44 +21,44 @@ ARCHITECTURE behavior OF motor_tb IS
     END COMPONENT;
 
     -- Signal declarations
-    SIGNAL UPDOWN   : STD_LOGIC_VECTOR(1 DOWNTO 0) := "00";
-    SIGNAL reset    : STD_LOGIC := '0';
-    SIGNAL STROBE_2 : STD_LOGIC := '0';
-    SIGNAL CLK     : STD_LOGIC := '0';
-    SIGNAL PISO     : STD_LOGIC_VECTOR(1 DOWNTO 0) := "00";
-    SIGNAL SEGMENT  : STD_LOGIC_VECTOR(6 DOWNTO 0);
-    SIGNAL LED16    : STD_LOGIC_VECTOR(2 DOWNTO 0);
-    SIGNAL LED17    : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL UPDOWN_tb   : STD_LOGIC_VECTOR(1 DOWNTO 0) := "00";
+    SIGNAL reset_tb    : STD_LOGIC := '0';
+    SIGNAL STROBE_2_tb : STD_LOGIC := '0';
+    SIGNAL CLK_tb     : STD_LOGIC := '0';
+    SIGNAL PISO_tb     : STD_LOGIC_VECTOR(1 DOWNTO 0) := "00";
+    SIGNAL SEGMENT_tb  : STD_LOGIC_VECTOR(6 DOWNTO 0);
+    SIGNAL LED16_tb    : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL LED17_tb    : STD_LOGIC_VECTOR(2 DOWNTO 0);
 
 BEGIN
 
     -- Instantiate the motor
     UUT : motor
         PORT MAP (
-            UPDOWN   => UPDOWN,
-            reset    => reset,
-            STROBE_2 => STROBE_2,
-            CLK      => CLK,
-            PISO     => PISO,
-            SEGMENT  => SEGMENT,
-            LED16    => LED16,
-            LED17    => LED17
+            UPDOWN   => UPDOWN_tb,
+            reset    => reset_tb,
+            STROBE_2 => STROBE_2_tb,
+            CLK      => CLK_tb,
+            PISO     => PISO_tb,
+            SEGMENT  => SEGMENT_tb,
+            LED16    => LED16_tb,
+            LED17    => LED17_tb
         );
 
     -- Clock process
     CLK_PROCESS : PROCESS
     BEGIN
         WAIT FOR 10 ns; -- Adjust the clock period as needed
-        CLK <= NOT CLK;
+        CLK_tb <= NOT CLK_tb;
     END PROCESS CLK_PROCESS;
     
     -- STROBE PROCESS
     STROBE_2_PROCESS : PROCESS
     BEGIN
         for i in 1 to 50000 loop
-          wait until clk = '1';
+          wait until clk_tb = '1';
          end loop;
-        STROBE_2 <= NOT STROBE_2;
+        STROBE_2_tb <= NOT STROBE_2_tb;
     END PROCESS STROBE_2_PROCESS;
         
         
@@ -67,18 +67,18 @@ BEGIN
     STIMULUS_PROCESS : PROCESS
     BEGIN
         -- Initialize inputs
-        UPDOWN   <= "00";
-        reset    <= '1';
+        UPDOWN_tb   <= "00";
+        reset_tb    <= '1';
 
         -- Apply stimulus
         WAIT FOR 20 ns;
-        reset <= '0';
+        reset_tb <= '0';
 
         WAIT FOR 20 ns;
-        UPDOWN <= "10";
+        UPDOWN_tb <= "10";
 
         WAIT FOR 6 ms;
-        UPDOWN <= "01";
+        UPDOWN_tb <= "01";
         --WAIT FOR 50 ns; -- Allow some time for the simulation to run
 
         -- Add more stimulus as needed

@@ -6,7 +6,7 @@ entity Puertas is
         generic (n_leds:integer:=8);
 Port (
         abrir_cerrar: in std_logic_vector (1 downto 0);
-        clk: in std_logic;        
+        clk, strobe_1: in std_logic;        
         abierto_cerrado: out std_logic_vector (1 downto 0);
         led: out std_logic_vector (15 downto 0)       
       );

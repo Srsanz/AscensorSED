@@ -8,7 +8,7 @@ end Testbench_Contador_puertas;
 
 architecture tb_architecture of Testbench_Contador_puertas is
     signal abre_cierra_tb       : std_logic_vector(1 downto 0) := "01";
-    signal clk              : std_logic := '0';
+    signal clk_tb              : std_logic := '0';
     signal emer_tb             : std_logic := '0';
     signal abierto_cerrado_tb  : std_logic_vector(1 downto 0);
     signal count_tb            : integer range 0 to 8;
@@ -22,7 +22,7 @@ begin
         )
         port map (
             abre_cierra      => abre_cierra_tb,
-            clk                 => clk,
+            clk                 => clk_tb,
             
             abierto_cerrado  => abierto_cerrado_tb,
             count            => count_tb
@@ -31,9 +31,9 @@ begin
     -- Genero el reloj
     clk_process: process
     begin
-            clk <= '0';
+            clk_tb <= '0';
             wait for CLOCK_PERIOD / 2;
-            clk <= '1';
+            clk_tb <= '1';
             wait for CLOCK_PERIOD / 2;
     end process;
 

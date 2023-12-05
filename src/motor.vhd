@@ -6,7 +6,7 @@ entity motor is
            reset : in STD_LOGIC;
            STROBE_2 : in STD_LOGIC;
            CLK : in STD_LOGIC;
-           PISO : inout STD_LOGIC_VECTOR (1 downto 0);
+           PISO : out STD_LOGIC_VECTOR (1 downto 0);
            SEGMENT : out STD_LOGIC_VECTOR (6 downto 0);
            LED16 : out STD_LOGIC_VECTOR (2 downto 0);
            LED17 : out STD_LOGIC_VECTOR (2 downto 0)
@@ -14,6 +14,7 @@ entity motor is
 end motor;
 
 architecture Behavioral of motor is
+signal piso_i: std_logic_vector(piso'range);
 
 COMPONENT DECODER_1
 PORT(
@@ -41,7 +42,7 @@ END COMPONENT;
 
 begin
 INST_DECODER_1: DECODER_1 PORT MAP(
-PISO=>PISO,
+PISO=>PISO_i,
 SEGMENT=>SEGMENT
 );
 
@@ -55,7 +56,7 @@ INST_CONTADOR_1: CONTADOR_1 PORT MAP(
 UPDOWN=>UPDOWN,
 reset=>reset,
 STROBE_2=>STROBE_2,
-PISO=>PISO
+PISO=>PISO_i
 );
 
 end Behavioral;
