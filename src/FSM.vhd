@@ -30,7 +30,7 @@ begin
 
  sync_proc : process (clk ,E_siguiente , reset )
    begin
-      if ( reset = '0') then
+      if ( reset = '1') then
       E_actual <= E0;
    elsif ( rising_edge (clk)) then
       E_actual <= E_siguiente;
@@ -51,7 +51,7 @@ begin
          abre_cierra <= "00"; -- Salida Moore
          if (piso_dest /= piso_actual) then
             E_siguiente <= E1;
-         else 
+         elsif (piso_dest=piso_actual) then
             E_siguiente <= E0;
          end if;
          
