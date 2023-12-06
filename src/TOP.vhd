@@ -23,7 +23,7 @@ component cabina
         piso_destino, piso, abierto_cerrado: out std_logic_vector(1 downto 0);
         emer: out std_logic;
         led: out std_logic_vector(15 downto 0);       
-        led16_r, led16_g,led16_b,led17_r,led17_g,led17_b: out std_logic;       
+        led16_r, led16_g,led16_b,led17_r,led17_g,led17_b: out std_logic;
          ca, cb, cc, cd, ce, cf, cg: out std_logic       
         );
 end component;

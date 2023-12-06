@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use work.strobe_generation.all;
 
 
 
@@ -21,6 +22,18 @@ entity Cabina is
 end Cabina; 
 
 architecture Behavioral of Cabina is
+
+signal strobe_signals : std_logic_vector(1 downto 0);
+
+component strobe_gen
+    generic (MODULI: positive_vector);
+    port (
+            RST_N : in std_logic;
+            CLK : in std_logic;
+            STROBES : out std_logic_vector
+        );   
+end component;
+
 component Botonera
 port(
         b0,b1,b2,b3: in std_logic;
@@ -54,11 +67,20 @@ signal led_16_i: std_logic_vector (2 downto 0):="000";
 signal led_17_i: std_logic_vector (2 downto 0):="000";
 
 begin
+strobe_gen_inst : strobe_gen
+        generic map (
+                     MODULI => (100000000, 300000000) -- Valores en unidades de 0.1 nanosegundos (100 MHz)
+        )
+        port map (
+                     RST_N => reset,
+                     CLK => clk,
+                     STROBES => strobe_signals
+        );
 inst_motor: motor            
     port map(
                 UPDOWN => sube_baja,
                 reset => reset,
-                strobe_2 => strobe_2,
+                strobe_2 => strobe_signals(1),
                 clk => clk,
                 PISO => piso,
                 segment => segment_i,
@@ -70,7 +92,7 @@ inst_puertas: puertas
     port map(
                 abrir_cerrar => abre_cierra,
                 clk => clk,
-                strobe_1 => strobe_1,
+                strobe_1 => strobe_signals(0),
                 abierto_cerrado => abierto_cerrado,
                 led => led
             );
