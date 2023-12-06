@@ -14,7 +14,7 @@ entity motor is
 end motor;
 
 architecture Behavioral of motor is
-signal piso_i: std_logic_vector(piso'range);
+signal piso_i: std_logic_vector(piso'range):= "00";
 
 COMPONENT DECODER_1
 PORT(
@@ -56,7 +56,7 @@ INST_CONTADOR_1: CONTADOR_1 PORT MAP(
 UPDOWN=>UPDOWN,
 reset=>reset,
 STROBE_2=>STROBE_2,
-PISO=>PISO_i
+PISO=>PISO
 );
 
 end Behavioral;
