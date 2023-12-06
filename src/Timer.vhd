@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity strobe_gen is
+entity TIMER is
   generic (
     MODULO  : positive
   );
@@ -10,9 +10,9 @@ entity strobe_gen is
     CLK    : in   std_logic;
     STROBE : out  std_logic
   );
-end strobe_gen;
+end TIMER;
 
-architecture BEHAVIORAL of strobe_gen is
+architecture BEHAVIORAL of TIMER is
 begin
   process (RST_N, CLK)
     subtype count_t is natural range 0 to MODULO - 1; 
@@ -31,4 +31,3 @@ begin
     end if;
   end process;
 end BEHAVIORAL;
-

@@ -14,6 +14,7 @@ ARCHITECTURE behavior OF motor_tb IS
             STROBE_2 : IN  STD_LOGIC;
             CLK      : IN  STD_LOGIC;
             PISO     : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+            an       : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
             SEGMENT  : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
             LED16    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
             LED17    : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
@@ -24,7 +25,8 @@ ARCHITECTURE behavior OF motor_tb IS
     SIGNAL UPDOWN_tb   : STD_LOGIC_VECTOR(1 DOWNTO 0) := "00";
     SIGNAL reset_tb    : STD_LOGIC := '0';
     SIGNAL STROBE_2_tb : STD_LOGIC := '0';
-    SIGNAL CLK_tb     : STD_LOGIC := '0';
+    SIGNAL CLK_tb      : STD_LOGIC := '0';
+    signal an_tb       : STD_LOGIC_VECTOR(7 DOWNTO 0);
     SIGNAL PISO_tb     : STD_LOGIC_VECTOR(1 DOWNTO 0) := "00";
     SIGNAL SEGMENT_tb  : STD_LOGIC_VECTOR(6 DOWNTO 0);
     SIGNAL LED16_tb    : STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -42,7 +44,8 @@ BEGIN
             PISO     => PISO_tb,
             SEGMENT  => SEGMENT_tb,
             LED16    => LED16_tb,
-            LED17    => LED17_tb
+            LED17    => LED17_tb,
+            an       => an_tb
         );
 
     -- Clock process
@@ -69,7 +72,7 @@ BEGIN
         -- Initialize inputs
         UPDOWN_tb   <= "00";
         reset_tb    <= '1';
-
+        an_tb <= "11111110";
         -- Apply stimulus
         WAIT FOR 20 ns;
         reset_tb <= '0';

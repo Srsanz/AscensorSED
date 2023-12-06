@@ -23,9 +23,7 @@ end Cabina;
 
 architecture Behavioral of Cabina is
 
-signal strobe_signals : std_logic_vector(1 downto 0);
-
-component strobe_gen
+component strobe_generator
     generic (MODULI: positive_vector);
     port (
             RST_N : in std_logic;
@@ -65,11 +63,13 @@ end component;
 signal segment_i: std_logic_vector (6 downto 0):= "111111";
 signal led_16_i: std_logic_vector (2 downto 0):="000";
 signal led_17_i: std_logic_vector (2 downto 0):="000";
-
+signal strobe_signals : std_logic_vector(1 downto 0);
+--constant moduli: positive_vector := (250000000, 500000000); TIEMPOS PLACA
+constant moduli: positive_vector := (2500, 50000);
 begin
-strobe_gen_inst : strobe_gen
+strobe_gen_inst : strobe_generator
         generic map (
-                     MODULI => (100000000, 300000000) -- Valores en unidades de 0.1 nanosegundos (100 MHz)
+                     MODULI => moduli -- Valores en unidades de 0.1 nanosegundos (100 MHz)
         )
         port map (
                      RST_N => reset,
