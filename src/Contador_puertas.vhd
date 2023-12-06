@@ -6,7 +6,7 @@ entity Contador_puertas is
         generic ( n_leds: integer := 8);
 Port (
         abre_cierra: in std_logic_vector(1 downto 0);
-        clk, emer: in std_logic;
+        clk: in std_logic;
         abierto_cerrado: out std_logic_vector(1 downto 0);
         count: out integer range 0 to n_leds
      );
