@@ -23,15 +23,6 @@ end Cabina;
 
 architecture Behavioral of Cabina is
 
-component strobe_generator
-    generic (MODULI: positive_vector);
-    port (
-            RST_N : in std_logic;
-            CLK : in std_logic;
-            STROBES : out std_logic_vector
-        );   
-end component;
-
 component Botonera
 port(
         b0,b1,b2,b3: in std_logic;

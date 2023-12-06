@@ -73,25 +73,25 @@ begin
      CLK_PROCESS : PROCESS
     BEGIN
         WAIT FOR 10 ns; -- Adjust the clock period as needed
-        CLK_tb <= NOT CLK_tb;
+        clk_tb <= NOT clk_tb;
     END PROCESS CLK_PROCESS;
     
-    stimulus_process: process
-        begin
-        abierto_cerrado_tb <= "10";
-        b0_tb <= '0';
-        b1_tb <= '0';
-        b2_tb <= '0';
-        b3_tb <= '0';
-        bemer_tb <= '0';
-        abre_cierra_tb <= "00";
-        sube_baja_tb <= "00";
-        an_tb <= "1000000";
-        wait for 10 ns;
+  stimulus_process: process
+begin
+    abierto_cerrado_tb <= "01"; -- Cambiado de "10" a "01"
+    b0_tb <= '0';
+    b1_tb <= '0';
+    b2_tb <= '0';
+    b3_tb <= '0';
+    bemer_tb <= '0';
+    abre_cierra_tb <= "00";
+    sube_baja_tb <= "00";
+    an_tb <= "11111110";
+    wait for 10 ns;
+end process;
+
         
-        
-        
-    end process;    
+          
         
     
 end Behavioral;
