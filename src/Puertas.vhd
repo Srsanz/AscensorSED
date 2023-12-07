@@ -28,7 +28,7 @@ end component;
 component deco_puertas
     generic (n_leds: integer:= 8);
     Port (
-            count: in integer range 0 to n_leds;
+            count: in integer range 0 to n_leds:= n_leds;
             led: out std_logic_vector(15 downto 0)
          );
 end component;

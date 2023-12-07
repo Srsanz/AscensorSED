@@ -13,7 +13,7 @@ entity Cabina is
         an: in std_logic_vector(7 downto 0);
         piso_destino, piso, abierto_cerrado: out std_logic_vector(1 downto 0);
         emer: out std_logic;
-        led: out std_logic_vector(15 downto 0);
+        led: out std_logic_vector(15 downto 0):= "0000000000000000";
         --led16,led17: out std_logic_vecor (2 downto 0); usad lo que querais para programar. para asignar vector a señal fijaos en la botonera
         led16_r,led16_g,led16_b,led17_r,led17_g,led17_b: out std_logic;
         --segment: out std_logic_vector(7 donwto 0);  usad lo que querais para programar. para asignar vector a señal fijaos en la botonera
@@ -55,6 +55,7 @@ signal segment_i: std_logic_vector (6 downto 0):= "1111111";
 signal led_16_i: std_logic_vector (2 downto 0):="000";
 signal led_17_i: std_logic_vector (2 downto 0):="000";
 signal strobe_signals : std_logic_vector(1 downto 0);
+signal emer_i: std_logic;
 --constant moduli: positive_vector := (250000000, 500000000); TIEMPOS PLACA
 constant moduli: positive_vector := (2500, 50000);
 begin
@@ -87,7 +88,10 @@ inst_puertas: puertas
                 abierto_cerrado => abierto_cerrado,
                 led => led
             );
-
+            
+    emer_i <= bemer;
+    emer<=emer_i;   
+    
     ca <= segment_i(0);
     cb <= segment_i(1);
     cc <= segment_i(2);

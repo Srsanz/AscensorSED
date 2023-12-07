@@ -71,11 +71,11 @@ BEGIN
     BEGIN
         -- Initialize inputs
         UPDOWN_tb   <= "00";
-        reset_tb    <= '1';
+        reset_tb    <= '0';
         an_tb <= "11111110";
         -- Apply stimulus
         WAIT FOR 20 ns;
-        reset_tb <= '0';
+        reset_tb <= '1';
 
         WAIT FOR 20 ns;
         UPDOWN_tb <= "10";

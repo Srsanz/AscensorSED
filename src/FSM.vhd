@@ -30,7 +30,7 @@ begin
 
  sync_proc : process (clk ,E_siguiente , reset )
    begin
-      if ( reset = '1') then
+      if ( reset = '0') then
       E_actual <= E0;
    elsif ( rising_edge (clk)) then
       E_actual <= E_siguiente;

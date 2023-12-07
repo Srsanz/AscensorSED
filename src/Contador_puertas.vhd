@@ -18,15 +18,15 @@ begin
 process (clk)
 begin
     if rising_edge(clk) then
-        if abre_cierra = "01" and count_i /= n_leds then --abrir
+        if abre_cierra = "10" and count_i /= n_leds then --abrir
             count_i <= (count_i + 1); 
-        elsif abre_cierra ="10" and count_i/= 0 then --CERRAR
+        elsif abre_cierra ="01" and count_i/= 0 then --CERRAR
               count_i <= (count_i - 1); 
         end if;
     end if;
 end process;
-abierto_cerrado <= "01" when count_i=n_leds else
-                   "10" when count_i=0 else
+abierto_cerrado <= "10" when count_i=n_leds else
+                   "01" when count_i=0 else
                    "00";
 --count <= std_logic_vector(to_unsigned(count_i,count'length));                                       
 count<= count_i;

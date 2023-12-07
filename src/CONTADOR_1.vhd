@@ -16,7 +16,7 @@ SIGNAL cnt: UNSIGNED(1 downto 0);
 begin
 process(STROBE_2, RESET)
     begin
-        IF reset = '1' THEN
+        IF reset = '0' THEN
             cnt <= (others  => '0');
            
         ELSIF STROBE_2'EVENT AND STROBE_2='1' THEN

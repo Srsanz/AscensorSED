@@ -43,18 +43,18 @@ begin
         wait for 5 ns; -- Asegura que la simulación ha comenzado antes de cambiar las señales
 
         -- Abrir hasta que esté abierto
-        while abierto_cerrado_tb /= "01" loop
-            abre_cierra_tb <= "01";
-            wait for CLOCK_PERIOD;
-        end loop;
-        assert abierto_cerrado_tb = "01" report "Error en la apertura" severity failure;
-
-        -- Cerrar hasta que esté cerrado
         while abierto_cerrado_tb /= "10" loop
             abre_cierra_tb <= "10";
             wait for CLOCK_PERIOD;
         end loop;
-        assert abierto_cerrado_tb = "10" report "Error en el cierre" severity failure;
+        assert abierto_cerrado_tb = "10" report "Error en la apertura" severity failure;
+
+        -- Cerrar hasta que esté cerrado
+        while abierto_cerrado_tb /= "01" loop
+            abre_cierra_tb <= "01";
+            wait for CLOCK_PERIOD;
+        end loop;
+        assert abierto_cerrado_tb = "01" report "Error en el cierre" severity failure;
 
         -- Continuar simulación después de cerrar
         --wait for 100 ns;

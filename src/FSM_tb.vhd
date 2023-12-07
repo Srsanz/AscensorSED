@@ -58,9 +58,9 @@ begin
     begin
         -- Reset initial values
         emer_tb <= '0';
-        reset_tb <= '1';
-        wait for 20 ns;
         reset_tb <= '0';
+        wait for 20 ns;
+        reset_tb <= '1';
         wait for 10 ns;
 
         -- Test Case 1: Moving from E0 to E1

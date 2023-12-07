@@ -6,7 +6,7 @@ entity deco_puertas_tb is
 end deco_puertas_tb;
 
 architecture tb_architecture of deco_puertas_tb is
-signal count_tb: integer range 0 to 8:=0;
+signal count_tb: integer range 0 to 8:=8;
 signal led_tb: std_logic_vector(15 downto 0);
 
 begin
