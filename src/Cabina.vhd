@@ -51,7 +51,7 @@ component motor is
            );
 end component;
 
-signal segment_i: std_logic_vector (6 downto 0):= "111111";
+signal segment_i: std_logic_vector (6 downto 0):= "1111111";
 signal led_16_i: std_logic_vector (2 downto 0):="000";
 signal led_17_i: std_logic_vector (2 downto 0):="000";
 signal strobe_signals : std_logic_vector(1 downto 0);
