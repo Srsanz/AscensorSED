@@ -30,7 +30,8 @@ signal reset_tb: std_logic := '0';
 signal clk_tb: std_logic := '0';
 signal strobe_1_tb, strobe_2_tb: std_logic := '0';
 signal an_tb: std_logic_vector(7 downto 0) := "11111110";
-signal piso_destino_tb, piso_tb, abierto_cerrado_tb: std_logic_vector(1 downto 0);
+signal piso_destino_tb, piso_tb: std_logic_vector(1 downto 0);
+signal abierto_cerrado_tb: std_logic_vector(1 downto 0):="10";
 signal led_tb: std_logic_vector(15 downto 0);
 signal led16_r_tb, led16_g_tb, led16_b_tb, led17_r_tb, led17_g_tb, led17_b_tb: std_logic;
 signal ca_tb, cb_tb, cc_tb, cd_tb, ce_tb, cf_tb, cg_tb: std_logic;
@@ -76,9 +77,25 @@ begin
         clk_tb <= NOT clk_tb;
     END PROCESS CLK_PROCESS;
     
+        STROBE_1_PROCESS : PROCESS
+    BEGIN
+        for i in 1 to 2500 loop
+          wait until clk_tb = '1';
+         end loop;
+        STROBE_1_tb <= NOT STROBE_1_tb;
+    END PROCESS STROBE_1_PROCESS;
+    
+        STROBE_2_PROCESS : PROCESS
+    BEGIN
+        for i in 1 to 50000 loop
+          wait until clk_tb = '1';
+         end loop;
+        STROBE_2_tb <= NOT STROBE_2_tb;
+    END PROCESS STROBE_2_PROCESS;
+    
   stimulus_process: process
 begin
-    abierto_cerrado_tb <= "01"; -- Cambiado de "10" a "01"
+    -- abierto_cerrado_tb <= "10"; -- Cambiado de "10" a "01"
     b0_tb <= '0';
     b1_tb <= '0';
     b2_tb <= '0';
@@ -88,6 +105,27 @@ begin
     sube_baja_tb <= "00";
     an_tb <= "11111110";
     wait for 10 ns;
+    
+    reset_tb<='1';
+    
+    wait for 20ns;
+    
+    b1_tb<='1';
+
+    sube_baja_tb<="00";
+    abre_cierra_tb<="01";
+    
+    wait for 140ns;
+    assert abierto_cerrado_tb<="01" report "error al cerrar" severity failure;
+    sube_baja_tb<="10";
+    abre_cierra_tb<="00";
+    wait for 830ns;
+    
+    sube_baja_tb<="00";
+    -- assert piso_tb<="01" report "error en el piso" severity failure;
+    
+    -- wait for 20 ns;
+    
 end process;
 
         

@@ -13,7 +13,7 @@ Port (
 end Contador_puertas;
 
 architecture Behavioral of Contador_puertas is
-signal count_i: integer range 0 to n_leds;
+signal count_i: integer range 0 to n_leds:=n_leds;
 begin
 process (clk)
 begin

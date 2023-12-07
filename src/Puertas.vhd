@@ -34,10 +34,9 @@ component deco_puertas
 end component;
 
 signal count_i: integer range 0 to n_leds;
-signal led_i: std_logic_vector (15 downto 0);
 
 begin
-inst_deco: deco_puertas port map(count=> count_i, led => led_i);
+inst_deco: deco_puertas port map(count=> count_i, led => led);
 inst_contador_puertas: contador_puertas
     port map(
         abre_cierra=>abrir_cerrar,   
