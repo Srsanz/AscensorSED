@@ -25,7 +25,7 @@ architecture fsm_ascensor of FSM is
 
  type estado is (E0, E1, E2, E3, E4, E5, E6);
    signal E_actual ,E_siguiente : estado ;
-
+ signal registro_piso: std_logic_vector (1 downto 0);
 begin
 
  sync_proc : process (clk ,E_siguiente , reset )
@@ -50,11 +50,11 @@ begin
          sube_baja <= "00";
          abre_cierra <= "00"; -- Salida Moore
          if (piso_dest /= piso_actual) then
+            registro_piso <= piso_dest;
             E_siguiente <= E1;
          elsif (piso_dest=piso_actual) then
             E_siguiente <= E0;
          end if;
-         
       when E1 =>
          sube_baja <= "00";
          abre_cierra <= "01"; -- Salida Moore
@@ -76,16 +76,16 @@ begin
          when E3 =>
          sube_baja <= "00";
          abre_cierra <= "00"; -- Salida Moore
-         if (piso_dest>piso_actual) then 
+         if (registro_piso>piso_actual) then 
             E_siguiente <= E4;
-         elsif (piso_dest<piso_actual) then
+         elsif (registro_piso<piso_actual) then
             E_siguiente <= E5;
          end if;
          
          when E4 =>
          sube_baja <= "10";
          abre_cierra <= "00"; -- Salida Moore
-         if (piso_actual=piso_dest) then 
+         if (piso_actual=registro_piso) then 
             E_siguiente <= E6;
          else
             E_siguiente <= E4;
@@ -94,7 +94,7 @@ begin
          when E5 =>
          sube_baja <= "01";
          abre_cierra <= "00"; -- Salida Moore
-         if (piso_actual=piso_dest) then 
+         if (piso_actual=registro_piso) then 
             E_siguiente <= E6;
          else
             E_siguiente <= E5;
