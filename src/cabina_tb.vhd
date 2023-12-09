@@ -36,7 +36,7 @@ signal led_tb: std_logic_vector(15 downto 0);
 signal led16_r_tb, led16_g_tb, led16_b_tb, led17_r_tb, led17_g_tb, led17_b_tb: std_logic;
 signal ca_tb, cb_tb, cc_tb, cd_tb, ce_tb, cf_tb, cg_tb: std_logic;
 signal emer_tb: std_logic;
-
+constant CLOCK_PERIOD   : time := 20 ns;
 begin
     uut: cabina port map(
                     b0 => b0_tb,
@@ -73,25 +73,11 @@ begin
     
      CLK_PROCESS : PROCESS
     BEGIN
-        WAIT FOR 10 ns; -- Adjust the clock period as needed
+        WAIT FOR clock_period/2; -- Adjust the clock period as needed
         clk_tb <= NOT clk_tb;
     END PROCESS CLK_PROCESS;
     
-        STROBE_1_PROCESS : PROCESS
-    BEGIN
-        for i in 1 to 2500 loop
-          wait until clk_tb = '1';
-         end loop;
-        STROBE_1_tb <= NOT STROBE_1_tb;
-    END PROCESS STROBE_1_PROCESS;
-    
-        STROBE_2_PROCESS : PROCESS
-    BEGIN
-        for i in 1 to 50000 loop
-          wait until clk_tb = '1';
-         end loop;
-        STROBE_2_tb <= NOT STROBE_2_tb;
-    END PROCESS STROBE_2_PROCESS;
+       
     
   stimulus_process: process
 begin
@@ -104,24 +90,33 @@ begin
     abre_cierra_tb <= "00";
     sube_baja_tb <= "00";
     an_tb <= "11111110";
-    wait for 10 ns;
+    wait for clock_period/2;
     
     reset_tb<='1';
     
-    wait for 20ns;
-    
+    wait for clock_period;
     b1_tb<='1';
-
     sube_baja_tb<="00";
     abre_cierra_tb<="01";
-    
-    wait for 140ns;
-    assert abierto_cerrado_tb<="01" report "error al cerrar" severity failure;
+    while abierto_cerrado_tb /= "01" loop
+            abre_cierra_tb <= "01";
+    wait for clock_period;
+    end loop;
+    assert abierto_cerrado_tb<="01" report "error al cerrar" severity failure;    
     sube_baja_tb<="10";
     abre_cierra_tb<="00";
-    wait for 830ns;
+    wait for clock_period;
     
-    sube_baja_tb<="00";
+    while piso_tb /= "01" loop
+        sube_baja_tb<= "10";
+    wait for clock_period;
+    end loop;
+    --sube_baja_tb<="00";
+
+    --wait for clock_period;
+    assert piso_tb<="01" report "error al subir" severity failure;    
+
+    
     -- assert piso_tb<="01" report "error en el piso" severity failure;
     
     -- wait for 20 ns;

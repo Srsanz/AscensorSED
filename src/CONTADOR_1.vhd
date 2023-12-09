@@ -25,6 +25,8 @@ process(STROBE_2, RESET)
             ELSIF UPDOWN="01" THEN
                 cnt <= cnt - 1;
                 END IF;
+                else
+                    cnt<=cnt;
             END IF;
     END PROCESS;
     
