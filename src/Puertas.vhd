@@ -20,7 +20,7 @@ component Contador_puertas
 Port (
         abre_cierra: in std_logic_vector(1 downto 0);
         clk: in std_logic;
-        abierto_cerrado: out std_logic_vector(1 downto 0);
+        abierto_cerrado: out std_logic_vector(1 downto 0):= "01";
         count: out integer range 0 to n_leds
      );
 end component;
@@ -40,7 +40,7 @@ inst_deco: deco_puertas port map(count=> count_i, led => led);
 inst_contador_puertas: contador_puertas
     port map(
         abre_cierra=>abrir_cerrar,   
-        clk => clk,
+        clk => strobe_1,
         abierto_cerrado => abierto_cerrado,
         count => count_i);
         
