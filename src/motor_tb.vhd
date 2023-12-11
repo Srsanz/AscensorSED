@@ -32,6 +32,18 @@ ARCHITECTURE behavior OF motor_tb IS
     SIGNAL LED16_tb    : STD_LOGIC_VECTOR(2 DOWNTO 0);
     SIGNAL LED17_tb    : STD_LOGIC_VECTOR(2 DOWNTO 0);
 
+    procedure strobe_gnrtr(
+        signal strobe : out std_logic;
+        signal clk : in std_logic;
+        constant factor : in positive) is
+    begin
+        strobe <= '0';
+        for i in 1 to factor - 1 loop
+          wait until clk = '1';
+        end loop;
+        strobe <= '1';
+        wait until clk = '1';
+    end procedure;
 BEGIN
 
     -- Instantiate the motor
@@ -56,15 +68,7 @@ BEGIN
     END PROCESS CLK_PROCESS;
     
     -- STROBE PROCESS
-    STROBE_2_PROCESS : PROCESS
-    BEGIN
-        for i in 1 to 50000 loop
-          wait until clk_tb = '1';
-         end loop;
-        STROBE_2_tb <= NOT STROBE_2_tb;
-    END PROCESS STROBE_2_PROCESS;
-        
-        
+    STROBE_2_PROCESS: strobe_gnrtr(STROBE_2_tb, clk_tb, 4);    
     
     -- Stimulus process
     STIMULUS_PROCESS : PROCESS
@@ -75,18 +79,27 @@ BEGIN
         an_tb <= "11111110";
         -- Apply stimulus
         WAIT FOR 20 ns;
+        wait until clk_tb = '1';
         reset_tb <= '1';
 
-        WAIT FOR 20 ns;
+        for i in 1 to 2 loop
+          wait until clk_tb = '1';
+        end loop;
         UPDOWN_tb <= "10";
 
-        WAIT FOR 6 ms;
+        for i in 1 to 16 loop
+          wait until clk_tb = '1';
+        end loop;
         UPDOWN_tb <= "01";
         --WAIT FOR 50 ns; -- Allow some time for the simulation to run
 
         -- Add more stimulus as needed
-
-        WAIT;
+        for i in 1 to 2 loop
+          wait until clk_tb = '1';
+        end loop;
+        assert false
+          report "[PASSED]: simulation finished."
+          severity failure;
     END PROCESS STIMULUS_PROCESS;
 
 END behavior;

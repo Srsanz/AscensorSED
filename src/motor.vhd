@@ -36,30 +36,32 @@ END COMPONENT;
 COMPONENT CONTADOR_1
 PORT(
            UPDOWN : in STD_LOGIC_VECTOR (1 downto 0);
-           reset: in STD_LOGIC;
+           reset, clk: in STD_LOGIC;
            STROBE_2 : in STD_LOGIC;
            PISO : out STD_LOGIC_VECTOR (1 downto 0)
 );
 END COMPONENT;
 
 begin
-INST_DECODER_1: DECODER_1 PORT MAP(
-PISO=>PISO_i,
-SEGMENT=>SEGMENT,
-an => an
-);
+    INST_DECODER_1: DECODER_1 PORT MAP(
+    PISO=>PISO_i,
+    SEGMENT=>SEGMENT,
+    an => an
+    );
 
-INST_DECODER_2: DECODER_2 PORT MAP(
-UPDOWN=>UPDOWN,
-LED16=>LED16,
-LED17=>LED17
-);
+    INST_DECODER_2: DECODER_2 PORT MAP(
+    UPDOWN=>UPDOWN,
+    LED16=>LED16,
+    LED17=>LED17
+    );
 
-INST_CONTADOR_1: CONTADOR_1 PORT MAP(
-UPDOWN=>UPDOWN,
-reset=>reset,
-STROBE_2=>STROBE_2,
-PISO=>PISO
-);
+    INST_CONTADOR_1: CONTADOR_1 PORT MAP(
+    UPDOWN=>UPDOWN,
+    reset=>reset,
+    STROBE_2=>STROBE_2,
+    PISO=>PISO_i,
+    clk => clk
+    );
 
+    PISO <= PISO_i;
 end Behavioral;

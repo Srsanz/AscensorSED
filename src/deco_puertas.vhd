@@ -12,7 +12,7 @@ end deco_puertas;
 architecture dataflow of deco_puertas is
 begin
 with count select
-    led <= (others => '1') when 0,
+    led <= "1111111111111111" when 0,
            "1111111001111111" when 1,
            "1111110000111111" when 2,
            "1111100000011111" when 3,
@@ -20,6 +20,5 @@ with count select
            "1110000000000111" when 5,
            "1100000000000011" when 6,
            "1000000000000001" when 7,
-           (others => '0') when 8,
-           (others => 'Z') when others;   
+           "0000000000000000" when others;   
 end dataflow;
