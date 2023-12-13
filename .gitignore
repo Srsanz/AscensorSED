@@ -2,3 +2,6 @@ AscensorSED.*/
 AscensorSED.vivado.jou*/
 AscensorSED.vivado.log*/
 AscensorSED.vivado.str*/
+*.jou
+*.log
+*.str
