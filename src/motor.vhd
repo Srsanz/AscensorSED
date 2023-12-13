@@ -1,6 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
+--use work.simulacion.all;
 entity motor is
     Port ( UPDOWN : in STD_LOGIC_VECTOR (1 downto 0);
            reset : in STD_LOGIC;

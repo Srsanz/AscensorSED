@@ -1,5 +1,7 @@
 LIBRARY ieee;
+library work;
 USE ieee.std_logic_1164.ALL;
+use work.simulacion.all;
 
 ENTITY motor_tb IS
 END motor_tb;
@@ -32,18 +34,18 @@ ARCHITECTURE behavior OF motor_tb IS
     SIGNAL LED16_tb    : STD_LOGIC_VECTOR(2 DOWNTO 0);
     SIGNAL LED17_tb    : STD_LOGIC_VECTOR(2 DOWNTO 0);
 
-    procedure strobe_gnrtr(
-        signal strobe : out std_logic;
-        signal clk : in std_logic;
-        constant factor : in positive) is
-    begin
-        strobe <= '0';
-        for i in 1 to factor - 1 loop
-          wait until clk = '1';
-        end loop;
-        strobe <= '1';
-        wait until clk = '1';
-    end procedure;
+--    procedure strobe_gnrtr(
+--        signal strobe : out std_logic;
+--        signal clk : in std_logic;
+--        constant factor : in positive) is
+--    begin
+--        strobe <= '0';
+--        for i in 1 to factor - 1 loop
+--          wait until clk = '1';
+--        end loop;
+--        strobe <= '1';
+--        wait until clk = '1';
+--    end procedure;
 BEGIN
 
     -- Instantiate the motor
