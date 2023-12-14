@@ -2,6 +2,7 @@ LIBRARY ieee;
 library work;
 USE ieee.std_logic_1164.ALL;
 use work.simulacion.all;
+use work.reloj.all;
 
 ENTITY motor_tb IS
 END motor_tb;
@@ -63,11 +64,12 @@ BEGIN
         );
 
     -- Clock process
-    CLK_PROCESS : PROCESS
-    BEGIN
-        WAIT FOR 10 ns; -- Adjust the clock period as needed
-        CLK_tb <= NOT CLK_tb;
-    END PROCESS CLK_PROCESS;
+--    CLK_PROCESS : PROCESS
+--    BEGIN
+--        WAIT FOR 10 ns; -- Adjust the clock period as needed
+--        CLK_tb <= NOT CLK_tb;
+--    END PROCESS CLK_PROCESS;
+    clk_period: periodo(clk_tb, 10 ns); 
     
     -- STROBE PROCESS
     STROBE_2_PROCESS: strobe_gnrtr(STROBE_2_tb, clk_tb, 4);    
