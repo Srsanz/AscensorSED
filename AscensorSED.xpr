@@ -177,6 +177,12 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/src/clk_package.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="TOP"/>
@@ -289,6 +295,7 @@
       </Config>
     </FileSet>
     <FileSet Name="PuertasTest" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/PuertasTest" RelGenDir="$PGENDIR/PuertasTest">
+      <Filter Type="Srcs"/>
       <File Path="$PPRDIR/src/Contador_puertas.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -335,6 +342,7 @@
       </Config>
     </FileSet>
     <FileSet Name="TopTest" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/TopTest" RelGenDir="$PGENDIR/TopTest">
+      <Filter Type="Srcs"/>
       <File Path="$PPRDIR/src/Cabina.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -478,7 +486,7 @@
         <ReportConfig DisplayName="synthesis_report" Name="synth_1_copy_1_synth_synthesis_report_0" Spec="" RunStep="synth_design" ReportFile="TOP.vds">
           <ReportConfigOption Name="dummy_option" Type="string"/>
         </ReportConfig>
-        <ReportConfig DisplayName="Utilization - Synth Design" Name="synth_1_copy_1_synth_report_utilization_0" Spec="report_utilization" RunStep="synth_design" ReportFile="TOP_utilization_synth.rpt" Version="1" Minor="0">
+        <ReportConfig DisplayName="Utilization - Synth Design" Name="synth_1_copy_1_synth_report_utilization_0" Spec="report_utilization" RunStep="synth_design" ReportFile="TOP_utilization_synth_1.rpt" Version="1" Minor="0">
           <ReportConfigOption Name="dummy_option" Type="string"/>
           <ReportConfigOutputOption Name="pb" Type="string" Value=""/>
         </ReportConfig>
