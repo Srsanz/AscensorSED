@@ -18,8 +18,8 @@ component cabina
         b0,b1,b2,b3,bemer: in std_logic;
         abre_cierra, sube_baja: in std_logic_vector(1 downto 0);
         clk: in std_logic;
+        reset_n: in std_logic;
         an: in std_logic_vector(0 to 7);
-        reset: in std_logic;
         piso_destino, piso, abierto_cerrado: out std_logic_vector(1 downto 0);
         emer: out std_logic;
         led: out std_logic_vector(15 downto 0);       
@@ -47,7 +47,7 @@ begin
 Cabina_inst: cabina port map (b0 => btnu, b1 => btnr, b2 => btnd, b3 => btnl, bemer => btnc, piso => piso_i,
 abre_cierra => orden_puerta, sube_baja => movimiento, clk=> CLK100MHZ, an => display_select, piso_destino=> destino, abierto_cerrado => estado_puerta, emer => emer_i,
  led => led, led16_r=>led16_r, led16_g => led16_g, led16_b=>led16_b, led17_r => led17_r,led17_g=>led17_g,led17_b =>led17_b,
-ca => ca, cb => cb, cc => cc, cd => cd, ce => ce, cf => cf, cg => cg, reset => CPU_RESETN); 
+ca => ca, cb => cb, cc => cc, cd => cd, ce => ce, cf => cf, cg => cg, reset_n => CPU_RESETN); 
 fms_inst: fsm port map (
                 clk => CLK100MHZ,
                 piso_actual => piso_i,

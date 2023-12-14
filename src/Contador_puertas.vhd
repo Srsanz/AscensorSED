@@ -1,7 +1,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use work.strb_reg.all;
 
 entity Contador_puertas is
         generic ( n_leds: integer := 8);
@@ -18,7 +17,7 @@ architecture Behavioral of Contador_puertas is
 signal count_i: integer range 0 to n_leds;
 signal en_i   : std_logic;
 begin
-  process (clk)
+  process (clk, reset_n)
   begin
     if reset_n = '0' then
       count_i <= n_leds;

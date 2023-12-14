@@ -1,24 +1,28 @@
 library ieee;
+library work;
 use IEEE.STD_LOGIC_1164.ALL;
-
+use work.simulacion.all;
 
 entity Puertas_tb is
 
 end Puertas_tb;
 
 architecture Behavioral of Puertas_tb is
-signal abrir_cerrar_tb: std_logic_vector (1 downto 0):="00";
-signal abierto_cerrado_tb: std_logic_vector (1 downto 0):="10";
-signal strobe_1_tb, clk_tb: std_logic:= '0' ;
-signal led_tb: std_logic_vector (15 downto 0);
-constant CLOCK_PERIOD   : time := 20 ns;
+    signal abrir_cerrar_tb: std_logic_vector (1 downto 0):="00";
+    signal abierto_cerrado_tb: std_logic_vector (1 downto 0):="10";
+    signal strobe_1_tb, clk_tb: std_logic:= '0' ;
+    signal led_tb: std_logic_vector (15 downto 0);
+    signal reset_n_tb: std_logic;
+    constant CLOCK_PERIOD   : time := 20 ns;
 
 begin
 uut: entity work.Puertas
         generic map (n_leds => 8)
 Port map (
         abrir_cerrar => abrir_cerrar_tb,
-        clk => clk_tb, strobe_1 => strobe_1_tb,        
+        clk => clk_tb, 
+        reset_n => reset_n_tb,
+        strobe_1 => strobe_1_tb,        
         abierto_cerrado => abierto_cerrado_tb,
         led => led_tb       
       );
@@ -31,13 +35,7 @@ Port map (
     end process;
     
     -- STROBE PROCESS
-    STROBE_1_PROCESS : PROCESS
-    BEGIN
-        for i in 1 to 10 loop
-          wait until clk_tb = '1';
-         end loop;
-        STROBE_1_tb <= NOT STROBE_1_tb;
-    END PROCESS STROBE_1_PROCESS;     
+    strobe_gnrtr(strobe_1_tb, clk_tb, 3); 
 
 stimulus_process:process
 begin

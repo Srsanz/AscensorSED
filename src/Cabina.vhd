@@ -9,7 +9,7 @@ entity Cabina is
         b0,b1,b2,b3,bemer: in std_logic;
         abre_cierra, sube_baja: in std_logic_vector(1 downto 0);
         clk, strobe_1, strobe_2: in std_logic;
-        reset: in std_logic;
+        reset_n: in std_logic;
         an: in std_logic_vector(7 downto 0);
         piso_destino, piso, abierto_cerrado: out std_logic_vector(1 downto 0);
         emer: out std_logic;
@@ -33,7 +33,8 @@ component Puertas
         generic (n_leds:integer:=8);
 Port (
         abrir_cerrar: in std_logic_vector (1 downto 0);
-        clk, strobe_1: in std_logic;        
+        clk, strobe_1: in std_logic; 
+        reset_n: in std_logic;       
         abierto_cerrado: out std_logic_vector (1 downto 0);
         led: out std_logic_vector (15 downto 0)       
       );
@@ -64,14 +65,14 @@ strobe_gen_inst : strobe_generator
                      MODULI => moduli -- Valores en unidades de 0.1 nanosegundos (100 MHz)
         )
         port map (
-                     RST_N => reset,
+                     RST_N => reset_n,
                      CLK => clk,
                      STROBES => strobe_signals
         );
 inst_motor: motor            
     port map(
                 UPDOWN => sube_baja,
-                reset => reset,
+                reset => reset_n,
                 strobe_2 => strobe_signals(1),
                 clk => clk,
                 PISO => piso,
@@ -84,6 +85,7 @@ inst_puertas: puertas
     port map(
                 abrir_cerrar => abre_cierra,
                 clk => clk,
+                reset_n => reset_n,
                 strobe_1 => strobe_signals(0),
                 abierto_cerrado => abierto_cerrado,
                 led => led
