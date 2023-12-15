@@ -1,6 +1,7 @@
 library IEEE;
 library work;
 use work.simulacion.all;
+use work.reloj.all;
 use IEEE.STD_LOGIC_1164.ALL;
 
 
@@ -25,7 +26,7 @@ architecture Behavioral of TOP_tb is
     signal AN_tb: std_logic_vector (0 to 7);
     signal LED16_B_tb, LED16_G_tb, LED16_R_tb, LED17_B_tb, LED17_G_tb, LED17_R_tb: std_logic;
     signal LED_tb: std_logic_vector(15 downto 0);
-
+    constant clk_period: time:= 10 ns;
 begin
     uut: TOP port map(
         BTNU => BTNU_tb, BTNR => BTNR_tb, BTND => BTND_tb, BTNL => BTNL_tb, BTNC => BTNC_tb,
@@ -38,5 +39,7 @@ begin
         LED => LED_tb
     );
 
+    periodo(CLK100MHZ_tb, clk_period);
+    
 
 end Behavioral;

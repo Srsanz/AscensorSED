@@ -2,7 +2,7 @@ library ieee;
 library work;
 use IEEE.STD_LOGIC_1164.ALL;
 use work.simulacion.all;
-
+use work.reloj.all;
 entity Puertas_tb is
 end Puertas_tb;
 
@@ -12,7 +12,7 @@ architecture Behavioral of Puertas_tb is
     signal strobe_1_tb, clk_tb: std_logic:= '0' ;
     signal led_tb: std_logic_vector (15 downto 0);
     signal reset_n_tb: std_logic;
-    constant CLOCK_PERIOD   : time := 20 ns;
+    constant CLOCK_PERIOD   : time := 10 ns;
     
 begin
     uut: entity work.Puertas
@@ -25,13 +25,7 @@ begin
             abierto_cerrado => abierto_cerrado_tb,
             led => led_tb       
         );
-    clk_process: process
-    begin
-     clk_tb <= '0';
-        wait for CLOCK_PERIOD / 2;
-        clk_tb <= '1';
-        wait for CLOCK_PERIOD / 2;
-    end process;
+    periodo(clk_tb, clock_period);
 
 -- STROBE PROCESS
     strobe_gnrtr(strobe_1_tb, clk_tb, 3); 

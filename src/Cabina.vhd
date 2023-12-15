@@ -8,7 +8,7 @@ entity Cabina is
     Port ( 
         b0,b1,b2,b3,bemer: in std_logic;
         abre_cierra, sube_baja: in std_logic_vector(1 downto 0);
-        clk, strobe_1, strobe_2: in std_logic;
+        clk, strobe_1, strobe_2: in std_logic:= '0';
         reset_n: in std_logic;
         an: in std_logic_vector(7 downto 0);
         piso_destino, piso, abierto_cerrado: out std_logic_vector(1 downto 0);

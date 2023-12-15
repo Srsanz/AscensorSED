@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TOP_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TOP_tb" />
+            <top_module name="reloj" />
+            <top_module name="simulacion" />
+            <top_module name="strobe_generation" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,000.000 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="215"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="23" />
+   <wvobject fp_name="/TOP_tb/CLK100MHZ_tb" type="logic">
+      <obj_property name="ElementShortName">CLK100MHZ_tb</obj_property>
+      <obj_property name="ObjectShortName">CLK100MHZ_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/BTNU_tb" type="logic">
+      <obj_property name="ElementShortName">BTNU_tb</obj_property>
+      <obj_property name="ObjectShortName">BTNU_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/BTNR_tb" type="logic">
+      <obj_property name="ElementShortName">BTNR_tb</obj_property>
+      <obj_property name="ObjectShortName">BTNR_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/BTND_tb" type="logic">
+      <obj_property name="ElementShortName">BTND_tb</obj_property>
+      <obj_property name="ObjectShortName">BTND_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/BTNL_tb" type="logic">
+      <obj_property name="ElementShortName">BTNL_tb</obj_property>
+      <obj_property name="ObjectShortName">BTNL_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/BTNC_tb" type="logic">
+      <obj_property name="ElementShortName">BTNC_tb</obj_property>
+      <obj_property name="ObjectShortName">BTNC_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/CA_tb" type="logic">
+      <obj_property name="ElementShortName">CA_tb</obj_property>
+      <obj_property name="ObjectShortName">CA_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/CB_tb" type="logic">
+      <obj_property name="ElementShortName">CB_tb</obj_property>
+      <obj_property name="ObjectShortName">CB_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/CC_tb" type="logic">
+      <obj_property name="ElementShortName">CC_tb</obj_property>
+      <obj_property name="ObjectShortName">CC_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/CD_tb" type="logic">
+      <obj_property name="ElementShortName">CD_tb</obj_property>
+      <obj_property name="ObjectShortName">CD_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/CE_tb" type="logic">
+      <obj_property name="ElementShortName">CE_tb</obj_property>
+      <obj_property name="ObjectShortName">CE_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/CF_tb" type="logic">
+      <obj_property name="ElementShortName">CF_tb</obj_property>
+      <obj_property name="ObjectShortName">CF_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/CG_tb" type="logic">
+      <obj_property name="ElementShortName">CG_tb</obj_property>
+      <obj_property name="ObjectShortName">CG_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/CPU_RESETN_tb" type="logic">
+      <obj_property name="ElementShortName">CPU_RESETN_tb</obj_property>
+      <obj_property name="ObjectShortName">CPU_RESETN_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/AN_tb" type="array">
+      <obj_property name="ElementShortName">AN_tb[0:7]</obj_property>
+      <obj_property name="ObjectShortName">AN_tb[0:7]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/LED16_B_tb" type="logic">
+      <obj_property name="ElementShortName">LED16_B_tb</obj_property>
+      <obj_property name="ObjectShortName">LED16_B_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/LED16_G_tb" type="logic">
+      <obj_property name="ElementShortName">LED16_G_tb</obj_property>
+      <obj_property name="ObjectShortName">LED16_G_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/LED16_R_tb" type="logic">
+      <obj_property name="ElementShortName">LED16_R_tb</obj_property>
+      <obj_property name="ObjectShortName">LED16_R_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/LED17_B_tb" type="logic">
+      <obj_property name="ElementShortName">LED17_B_tb</obj_property>
+      <obj_property name="ObjectShortName">LED17_B_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/LED17_G_tb" type="logic">
+      <obj_property name="ElementShortName">LED17_G_tb</obj_property>
+      <obj_property name="ObjectShortName">LED17_G_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/LED17_R_tb" type="logic">
+      <obj_property name="ElementShortName">LED17_R_tb</obj_property>
+      <obj_property name="ObjectShortName">LED17_R_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/LED_tb" type="array">
+      <obj_property name="ElementShortName">LED_tb[15:0]</obj_property>
+      <obj_property name="ObjectShortName">LED_tb[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/clk_period" type="other">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+</wave_config>
