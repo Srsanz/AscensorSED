@@ -14,14 +14,14 @@ Port (
 end Contador_puertas;
 
 architecture Behavioral of Contador_puertas is
-signal count_i: integer range 0 to n_leds;
-signal en_i   : std_logic;
+    signal count_i: integer range 0 to n_leds;
+    signal en_i   : std_logic;
 begin
-  process (clk, reset_n)
-  begin
-    if reset_n = '0' then
-      count_i <= n_leds;
-    elsif rising_edge(clk) then
+    process (clk, reset_n)
+    begin
+        if reset_n = '0' then
+            count_i <= n_leds;
+        elsif rising_edge(clk) then
       if strobe_1 = '1' then
         if abre_cierra = "10" and count_i /= n_leds then --abrir
             count_i <= count_i + 1;

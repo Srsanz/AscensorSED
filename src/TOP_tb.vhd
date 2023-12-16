@@ -40,6 +40,32 @@ begin
     );
 
     periodo(CLK100MHZ_tb, clk_period);
+     -- Stimulus process
+    STIMULUS_PROCESS : PROCESS
+    BEGIN
+        -- Initialize inputs
+        CPU_RESETN_tb <= '0';
+        BTNU_tb <= '0';
+        BTNR_tb <= '0';
+        BTND_tb <= '0';
+        BTNL_tb <= '0';
+        BTNC_tb <= '0';
+        
+
+        
+        --LED_tb <= (others => '0');
+
+        --an_tb <= "11111110";
+        -- Apply stimulus
+        wait for 100ns;
+        --wait until CLK100MHZ_tb='1';
+        CPU_RESETN_tb<='1';
+        for i in 1 to 2 loop
+          wait until CLK100MHZ_tb = '1';
+        end loop;
+       -- BTNU_tb<='1';
     
+
+    END PROCESS STIMULUS_PROCESS;
 
 end Behavioral;
