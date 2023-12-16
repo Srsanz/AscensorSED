@@ -41,6 +41,9 @@ begin
 
     periodo(CLK100MHZ_tb, clk_period);
      -- Stimulus process
+
+     
+     
     STIMULUS_PROCESS : PROCESS
     BEGIN
         -- Initialize inputs
@@ -60,10 +63,15 @@ begin
         wait for 100ns;
         --wait until CLK100MHZ_tb='1';
         CPU_RESETN_tb<='1';
-        for i in 1 to 2 loop
-          wait until CLK100MHZ_tb = '1';
-        end loop;
-       -- BTNU_tb<='1';
+        
+        wait for 100ns;
+        BTNR_tb<='1';
+        wait for 20 ns;
+        BTNC_tb<='1';
+--        wait for 500ns;
+--        BTNR_tb<='0';
+        wait;
+        
     
 
     END PROCESS STIMULUS_PROCESS;

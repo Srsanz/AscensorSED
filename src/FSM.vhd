@@ -13,22 +13,21 @@ entity FSM is
            sube_baja : out STD_LOGIC_VECTOR (1 downto 0));
 end FSM;
 
-architecture fsm_ascensor of FSM is
+    architecture fsm_ascensor of FSM is
 
  type estado is (E0, E1, E2, E3, E4, E5, E6);
    signal E_actual ,E_siguiente : estado ;
- signal registro_piso: std_logic_vector (1 downto 0);
+   signal registro_piso: std_logic_vector (1 downto 0);
 begin
 
- sync_proc : process (clk ,E_siguiente , reset )
+sync_proc : process (clk ,E_siguiente, E_actual , reset )
    begin
-      if ( reset = '0') then
+   if ( reset = '0') then
       E_actual <= E0;
    elsif ( rising_edge (clk)) then
       E_actual <= E_siguiente;
    end if;
-   
-   end process sync_proc ;
+end process sync_proc ;
    
     fsm_ascensor : process (E_actual ,piso_dest)
    begin
@@ -41,19 +40,22 @@ begin
       when E0 =>
          sube_baja <= "00";
          abre_cierra <= "00"; -- Salida Moore
-         if (piso_dest /= piso_actual) then
+         if (piso_dest /= piso_actual and piso_dest/="ZZ") then
             registro_piso <= piso_dest;
             E_siguiente <= E1;
-         elsif (piso_dest=piso_actual) then
+         elsif (piso_dest=piso_actual or piso_dest="ZZ") then
             E_siguiente <= E0;
          end if;
+      
       when E1 =>
          sube_baja <= "00";
          abre_cierra <= "01"; -- Salida Moore
          if (emer='1') then
             E_siguiente <= E2;
-         else
+         elsif(abierto_cerrado="01") then
             E_siguiente <= E3;
+         else
+            E_siguiente <= E1;
          end if;
          
       when E2 =>
@@ -65,7 +67,7 @@ begin
             E_siguiente <= E2;
          end if;
          
-         when E3 =>
+      when E3 =>
          sube_baja <= "00";
          abre_cierra <= "00"; -- Salida Moore
          if (registro_piso>piso_actual) then 
@@ -74,7 +76,7 @@ begin
             E_siguiente <= E5;
          end if;
          
-         when E4 =>
+      when E4 =>
          sube_baja <= "10";
          abre_cierra <= "00"; -- Salida Moore
          if (piso_actual=registro_piso) then 
@@ -83,7 +85,7 @@ begin
             E_siguiente <= E4;
          end if;     
          
-         when E5 =>
+      when E5 =>
          sube_baja <= "01";
          abre_cierra <= "00"; -- Salida Moore
          if (piso_actual=registro_piso) then 
@@ -92,7 +94,7 @@ begin
             E_siguiente <= E5;
          end if;
          
-         when E6 =>
+      when E6 =>
          sube_baja <= "00";
          abre_cierra <= "10"; -- Salida Moore
          if (abierto_cerrado="10") then 
