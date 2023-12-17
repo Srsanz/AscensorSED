@@ -15,7 +15,7 @@ end FSM;
 
     architecture fsm_ascensor of FSM is
 
- type estado is (E0, E1, E2, E3, E4, E5, E6);
+type estado is (E0, E1, E2, E3, E4, E5, E6);
    signal E_actual ,E_siguiente : estado ;
    signal registro_piso: std_logic_vector (1 downto 0);
 begin
