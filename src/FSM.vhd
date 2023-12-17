@@ -29,14 +29,10 @@ sync_proc : process (clk ,E_siguiente, E_actual , reset )
    end if;
 end process sync_proc ;
    
-    fsm_ascensor : process (E_actual ,piso_dest)
-   begin
-      abre_cierra <= "00";
-      sube_baja <= "00";  -- Valores preasignados
-      
-      
+fsm_ascensor : process (E_actual, piso_dest, piso_actual, emer, abierto_cerrado, registro_piso)
+begin
+    E_siguiente <= E_actual;
    case E_actual is
-   
       when E0 =>
          sube_baja <= "00";
          abre_cierra <= "00"; -- Salida Moore

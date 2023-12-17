@@ -66,8 +66,11 @@ begin
         
         wait for 100ns;
         BTNR_tb<='1';
-        wait for 20 ns;
-        BTNC_tb<='1';
+        wait for 50ns;
+        BTNR_tb<='0';
+        wait for 650 ns;
+        BTNU_tb<='1';
+        --BTNC_tb<='1';
 --        wait for 500ns;
 --        BTNR_tb<='0';
         wait;
