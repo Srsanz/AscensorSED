@@ -11,7 +11,8 @@ entity Cabina is
         clk, strobe_1, strobe_2: in std_logic:= '0';
         reset_n: in std_logic;
         an: in std_logic_vector(7 downto 0);
-        piso_destino, piso, abierto_cerrado: out std_logic_vector(1 downto 0);
+        piso_destino, piso: out std_logic_vector(2 downto 0);
+        abierto_cerrado: out std_logic_vector(1 downto 0);
         emer: out std_logic;
         led: out std_logic_vector(15 downto 0):= "0000000000000000";
         --led16,led17: out std_logic_vecor (2 downto 0); usad lo que querais para programar. para asignar vector a señal fijaos en la botonera
@@ -26,7 +27,7 @@ architecture Behavioral of Cabina is
 component Botonera
 port(
         b0,b1,b2,b3: in std_logic;
-        piso_deseado: out std_logic_vector(1 downto 0)
+        piso_deseado: out std_logic_vector(2 downto 0)
     );
 end component;
 component Puertas
@@ -41,11 +42,12 @@ Port (
 end component;
 
 component motor is
+    generic (n_pisos: integer := 3);
     Port ( UPDOWN : in STD_LOGIC_VECTOR (1 downto 0);
            reset : in STD_LOGIC;
            STROBE_2 : in STD_LOGIC;
            CLK : in STD_LOGIC;
-           PISO : out STD_LOGIC_VECTOR (1 downto 0);
+           PISO : out STD_LOGIC_VECTOR (2 downto 0);
            SEGMENT : out STD_LOGIC_VECTOR (6 downto 0);
            LED16 : out STD_LOGIC_VECTOR (2 downto 0);
            LED17 : out STD_LOGIC_VECTOR (2 downto 0)

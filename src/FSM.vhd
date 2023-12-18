@@ -4,8 +4,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity FSM is
     Port ( clk : in STD_LOGIC;
-           piso_actual : in STD_LOGIC_VECTOR (1 downto 0);
-           piso_dest : in STD_LOGIC_VECTOR (1 downto 0);
+           piso_actual : in STD_LOGIC_VECTOR (2 downto 0);
+           piso_dest : in STD_LOGIC_VECTOR (2 downto 0);
            abierto_cerrado : in STD_LOGIC_VECTOR (1 downto 0);
            emer : in STD_LOGIC;
            reset : in STD_LOGIC;
@@ -17,7 +17,7 @@ end FSM;
 
 type estado is (E0, E1, E2, E3, E4, E5, E6);
    signal E_actual ,E_siguiente : estado ;
-   signal registro_piso: std_logic_vector (1 downto 0);
+   signal registro_piso: std_logic_vector (2 downto 0);
 begin
 
 sync_proc : process (clk ,E_siguiente, E_actual , reset )
@@ -36,10 +36,10 @@ begin
       when E0 =>
          sube_baja <= "00";
          abre_cierra <= "00"; -- Salida Moore
-         if (piso_dest /= piso_actual and piso_dest/="ZZ") then
+         if (piso_dest /= piso_actual and piso_dest/="000") then
             registro_piso <= piso_dest;
             E_siguiente <= E1;
-         elsif (piso_dest=piso_actual or piso_dest="ZZ") then
+         elsif (piso_dest=piso_actual or piso_dest="000") then
             E_siguiente <= E0;
          end if;
       

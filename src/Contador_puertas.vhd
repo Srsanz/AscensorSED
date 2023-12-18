@@ -23,10 +23,14 @@ begin
             count_i <= n_leds;
         elsif rising_edge(clk) then
       if strobe_1 = '1' then
-        if abre_cierra = "10" and count_i /= n_leds then --abrir
-            count_i <= count_i + 1;
-        elsif abre_cierra ="01" and count_i/= 0 then --CERRAR
-            count_i <= count_i - 1; 
+        if abre_cierra = "10"  then
+            if count_i /= n_leds then --abrir
+                count_i <= count_i + 1;
+            end if;    
+        elsif abre_cierra ="01" then
+            if count_i/= 0 then  --CERRAR
+                count_i <= count_i - 1;
+            end if;     
         end if;
       end if;
     end if;

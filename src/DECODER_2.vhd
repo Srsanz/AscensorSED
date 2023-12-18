@@ -11,6 +11,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity DECODER_2 is
+    generic (n_pisos: integer := 3);
     Port ( UPDOWN : in STD_LOGIC_VECTOR (1 downto 0);
            LED16 : out STD_LOGIC_VECTOR (2 downto 0);
            LED17 : out STD_LOGIC_VECTOR (2 downto 0)
