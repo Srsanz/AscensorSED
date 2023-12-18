@@ -10,7 +10,7 @@ entity Cabina is
         abre_cierra, sube_baja: in std_logic_vector(1 downto 0);
         clk, strobe_1, strobe_2: in std_logic:= '0';
         reset_n: in std_logic;
-        an: in std_logic_vector(7 downto 0);
+        an: out std_logic_vector(0 to 7);
         piso_destino, piso: out std_logic_vector(2 downto 0);
         abierto_cerrado: out std_logic_vector(1 downto 0);
         emer: out std_logic;
@@ -46,6 +46,7 @@ component motor is
     Port ( UPDOWN : in STD_LOGIC_VECTOR (1 downto 0);
            reset : in STD_LOGIC;
            STROBE_2 : in STD_LOGIC;
+           an : out std_logic_vector (0 to 7);
            CLK : in STD_LOGIC;
            PISO : out STD_LOGIC_VECTOR (2 downto 0);
            SEGMENT : out STD_LOGIC_VECTOR (6 downto 0);
@@ -78,6 +79,7 @@ inst_motor: motor
                 strobe_2 => strobe_signals(1),
                 clk => clk,
                 PISO => piso,
+                an => an,
                 segment => segment_i,
                 led16 => led_16_i,
                 led17 => led_17_i

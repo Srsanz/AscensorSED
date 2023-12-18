@@ -6,7 +6,7 @@ entity motor is
     Port ( UPDOWN : in STD_LOGIC_VECTOR (1 downto 0);
            reset : in STD_LOGIC;
            STROBE_2 : in STD_LOGIC;
-           an : out std_logic_vector (7 downto 0);
+           an : out std_logic_vector (0 to 7);
            CLK : in STD_LOGIC;
            PISO : out STD_LOGIC_VECTOR (2 downto 0);
            SEGMENT : out STD_LOGIC_VECTOR (6 downto 0);
