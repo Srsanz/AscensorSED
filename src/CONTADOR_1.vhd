@@ -9,7 +9,7 @@ entity CONTADOR_1 is
            reset: in STD_LOGIC;
            STROBE_2 : in STD_LOGIC;
            clk: in std_logic;
-           PISO : out STD_LOGIC_VECTOR (2 downto 0)
+           PISO : out STD_LOGIC_VECTOR (1 downto 0)
            );         
 end CONTADOR_1;
 
@@ -35,9 +35,9 @@ begin
         END IF;
     END PROCESS;
     
-    PISO <= "100" when cnt = 0 else
-            "101" when cnt = 1 else
-            "110" when cnt = 2 else
-            "111" when cnt = n_pisos else
-            "000";
+    PISO <= "00" when cnt = 0 else
+            "01" when cnt = 1 else
+            "10" when cnt = 2 else
+            "11" when cnt = n_pisos else
+            "00";
 end Behavioral;

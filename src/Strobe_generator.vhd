@@ -9,7 +9,7 @@ package STROBE_GENERATION is
       MODULI  : positive_vector
     );
     port ( 
-      RST_N   : in   std_logic;
+      RST_N   : in   std_logic_vector;
       CLK     : in   std_logic;
       STROBES : out  std_logic_vector
     );
@@ -25,7 +25,7 @@ entity STROBE_GENERATOR is
     MODULI  : positive_vector
   );
   port ( 
-    RST_N   : in   std_logic;
+    RST_N   : in   std_logic_vector;
     CLK     : in   std_logic;
     STROBES : out  std_logic_vector
   );
@@ -49,7 +49,7 @@ begin
         MODULO => MODULI(i)
       )
       port map ( 
-        RST_N  => RST_N,
+        RST_N  => RST_N(i),
         CLK    => CLK,
         STROBE => STROBES(i)
       );

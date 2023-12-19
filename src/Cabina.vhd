@@ -9,9 +9,11 @@ entity Cabina is
         b0,b1,b2,b3,bemer: in std_logic;
         abre_cierra, sube_baja: in std_logic_vector(1 downto 0);
         clk, strobe_1, strobe_2: in std_logic:= '0';
+        CE_1, CE_2: in std_logic;
         reset_n: in std_logic;
         an: out std_logic_vector(0 to 7);
-        piso_destino, piso: out std_logic_vector(2 downto 0);
+        piso_destino: out std_logic_vector(2 downto 0);
+        piso: out std_logic_vector(1 downto 0);
         abierto_cerrado: out std_logic_vector(1 downto 0);
         emer: out std_logic;
         led: out std_logic_vector(15 downto 0):= "0000000000000000";
@@ -48,7 +50,7 @@ component motor is
            STROBE_2 : in STD_LOGIC;
            an : out std_logic_vector (0 to 7);
            CLK : in STD_LOGIC;
-           PISO : out STD_LOGIC_VECTOR (2 downto 0);
+           PISO : out STD_LOGIC_VECTOR (1 downto 0);
            SEGMENT : out STD_LOGIC_VECTOR (6 downto 0);
            LED16 : out STD_LOGIC_VECTOR (2 downto 0);
            LED17 : out STD_LOGIC_VECTOR (2 downto 0)
@@ -58,18 +60,21 @@ end component;
 signal segment_i: std_logic_vector (6 downto 0):= "1111111";
 signal led_16_i: std_logic_vector (2 downto 0):="000";
 signal led_17_i: std_logic_vector (2 downto 0):="000";
+signal CE_i: std_logic_vector(1 downto 0);
 signal strobe_signals : std_logic_vector(1 downto 0);
 signal emer_i: std_logic;
 --constant moduli: positive_vector := (50000000, 500000000);
 constant moduli: positive_vector := (10, 50);
 
 begin
+ce_i(0) <= ce_1;
+ce_i(1) <= ce_2;
 strobe_gen_inst : strobe_generator
         generic map (
                      MODULI => moduli -- Valores en unidades de 0.1 nanosegundos (100 MHz)
         )
         port map (
-                     RST_N => reset_n,
+                     RST_N => CE_i,
                      CLK => clk,
                      STROBES => strobe_signals
         );

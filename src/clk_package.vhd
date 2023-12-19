@@ -12,7 +12,7 @@ package body reloj is
         signal clk: out STD_LOGIC; 
         constant factor: time) is
     begin
-        for i in 0 to 2000 loop
+        for i in 0 to 20000 loop
             clk <= '0';
             wait for factor / 2;
             clk <= '1';

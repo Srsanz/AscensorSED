@@ -14,17 +14,29 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000000 us"></ZoomStartTime>
-      <ZoomEndTime time="5.562608 us"></ZoomEndTime>
-      <Cursor1Time time="3.000000 us"></Cursor1Time>
+      <ZoomEndTime time="7.132278 us"></ZoomEndTime>
+      <Cursor1Time time="0.205000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="177"></NameColumnWidth>
-      <ValueColumnWidth column_width="85"></ValueColumnWidth>
+      <ValueColumnWidth column_width="75"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="26" />
+   <WVObjectSize size="13" />
+   <wave_markers>
+      <marker time="200000" label="" />
+   </wave_markers>
    <wvobject fp_name="/TOP_tb/CLK100MHZ_tb" type="logic">
       <obj_property name="ElementShortName">CLK100MHZ_tb</obj_property>
       <obj_property name="ObjectShortName">CLK100MHZ_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/uut/Cabina_inst/strobe_signals" type="array">
+      <obj_property name="ElementShortName">strobe_signals[1:0]</obj_property>
+      <obj_property name="ObjectShortName">strobe_signals[1:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/CPU_RESETN_tb" type="logic">
+      <obj_property name="ElementShortName">CPU_RESETN_tb</obj_property>
+      <obj_property name="ObjectShortName">CPU_RESETN_tb</obj_property>
    </wvobject>
    <wvobject fp_name="/TOP_tb/BTNU_tb" type="logic">
       <obj_property name="ElementShortName">BTNU_tb</obj_property>
@@ -46,239 +58,37 @@
       <obj_property name="ElementShortName">BTNC_tb</obj_property>
       <obj_property name="ObjectShortName">BTNC_tb</obj_property>
    </wvobject>
-   <wvobject fp_name="/TOP_tb/CA_tb" type="logic">
-      <obj_property name="ElementShortName">CA_tb</obj_property>
-      <obj_property name="ObjectShortName">CA_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/CB_tb" type="logic">
-      <obj_property name="ElementShortName">CB_tb</obj_property>
-      <obj_property name="ObjectShortName">CB_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/CC_tb" type="logic">
-      <obj_property name="ElementShortName">CC_tb</obj_property>
-      <obj_property name="ObjectShortName">CC_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/CD_tb" type="logic">
-      <obj_property name="ElementShortName">CD_tb</obj_property>
-      <obj_property name="ObjectShortName">CD_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/CE_tb" type="logic">
-      <obj_property name="ElementShortName">CE_tb</obj_property>
-      <obj_property name="ObjectShortName">CE_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/CF_tb" type="logic">
-      <obj_property name="ElementShortName">CF_tb</obj_property>
-      <obj_property name="ObjectShortName">CF_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/CG_tb" type="logic">
-      <obj_property name="ElementShortName">CG_tb</obj_property>
-      <obj_property name="ObjectShortName">CG_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/CPU_RESETN_tb" type="logic">
-      <obj_property name="ElementShortName">CPU_RESETN_tb</obj_property>
-      <obj_property name="ObjectShortName">CPU_RESETN_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/AN_tb" type="array">
-      <obj_property name="ElementShortName">AN_tb[0:7]</obj_property>
-      <obj_property name="ObjectShortName">AN_tb[0:7]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/LED16_B_tb" type="logic">
-      <obj_property name="ElementShortName">LED16_B_tb</obj_property>
-      <obj_property name="ObjectShortName">LED16_B_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/LED16_G_tb" type="logic">
-      <obj_property name="ElementShortName">LED16_G_tb</obj_property>
-      <obj_property name="ObjectShortName">LED16_G_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/LED16_R_tb" type="logic">
-      <obj_property name="ElementShortName">LED16_R_tb</obj_property>
-      <obj_property name="ObjectShortName">LED16_R_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/LED17_B_tb" type="logic">
-      <obj_property name="ElementShortName">LED17_B_tb</obj_property>
-      <obj_property name="ObjectShortName">LED17_B_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/LED17_G_tb" type="logic">
-      <obj_property name="ElementShortName">LED17_G_tb</obj_property>
-      <obj_property name="ObjectShortName">LED17_G_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/TOP_tb/LED17_R_tb" type="logic">
-      <obj_property name="ElementShortName">LED17_R_tb</obj_property>
-      <obj_property name="ObjectShortName">LED17_R_tb</obj_property>
-   </wvobject>
    <wvobject fp_name="/TOP_tb/LED_tb" type="array">
       <obj_property name="ElementShortName">LED_tb[15:0]</obj_property>
       <obj_property name="ObjectShortName">LED_tb[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/TOP_tb/clk_period" type="other">
-      <obj_property name="ElementShortName">clk_period</obj_property>
-      <obj_property name="ObjectShortName">clk_period</obj_property>
-   </wvobject>
    <wvobject fp_name="group25" type="group">
       <obj_property name="label">Cabina</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="group24" type="group">
-         <obj_property name="label">Cabina</obj_property>
-         <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="isExpanded"></obj_property>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/b0" type="logic">
-            <obj_property name="ElementShortName">b0</obj_property>
-            <obj_property name="ObjectShortName">b0</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/b1" type="logic">
-            <obj_property name="ElementShortName">b1</obj_property>
-            <obj_property name="ObjectShortName">b1</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/b2" type="logic">
-            <obj_property name="ElementShortName">b2</obj_property>
-            <obj_property name="ObjectShortName">b2</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/b3" type="logic">
-            <obj_property name="ElementShortName">b3</obj_property>
-            <obj_property name="ObjectShortName">b3</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/bemer" type="logic">
-            <obj_property name="ElementShortName">bemer</obj_property>
-            <obj_property name="ObjectShortName">bemer</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/abre_cierra" type="array">
-            <obj_property name="ElementShortName">abre_cierra[1:0]</obj_property>
-            <obj_property name="ObjectShortName">abre_cierra[1:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/sube_baja" type="array">
-            <obj_property name="ElementShortName">sube_baja[1:0]</obj_property>
-            <obj_property name="ObjectShortName">sube_baja[1:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/clk" type="logic">
-            <obj_property name="ElementShortName">clk</obj_property>
-            <obj_property name="ObjectShortName">clk</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/strobe_1" type="logic">
-            <obj_property name="ElementShortName">strobe_1</obj_property>
-            <obj_property name="ObjectShortName">strobe_1</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/strobe_2" type="logic">
-            <obj_property name="ElementShortName">strobe_2</obj_property>
-            <obj_property name="ObjectShortName">strobe_2</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/reset_n" type="logic">
-            <obj_property name="ElementShortName">reset_n</obj_property>
-            <obj_property name="ObjectShortName">reset_n</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/an" type="array">
-            <obj_property name="ElementShortName">an[0:7]</obj_property>
-            <obj_property name="ObjectShortName">an[0:7]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/piso_destino" type="array">
-            <obj_property name="ElementShortName">piso_destino[2:0]</obj_property>
-            <obj_property name="ObjectShortName">piso_destino[2:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/piso" type="array">
-            <obj_property name="ElementShortName">piso[2:0]</obj_property>
-            <obj_property name="ObjectShortName">piso[2:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/abierto_cerrado" type="array">
-            <obj_property name="ElementShortName">abierto_cerrado[1:0]</obj_property>
-            <obj_property name="ObjectShortName">abierto_cerrado[1:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/emer" type="logic">
-            <obj_property name="ElementShortName">emer</obj_property>
-            <obj_property name="ObjectShortName">emer</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/led" type="array">
-            <obj_property name="ElementShortName">led[15:0]</obj_property>
-            <obj_property name="ObjectShortName">led[15:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/led16_r" type="logic">
-            <obj_property name="ElementShortName">led16_r</obj_property>
-            <obj_property name="ObjectShortName">led16_r</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/led16_g" type="logic">
-            <obj_property name="ElementShortName">led16_g</obj_property>
-            <obj_property name="ObjectShortName">led16_g</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/led16_b" type="logic">
-            <obj_property name="ElementShortName">led16_b</obj_property>
-            <obj_property name="ObjectShortName">led16_b</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/led17_r" type="logic">
-            <obj_property name="ElementShortName">led17_r</obj_property>
-            <obj_property name="ObjectShortName">led17_r</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/led17_g" type="logic">
-            <obj_property name="ElementShortName">led17_g</obj_property>
-            <obj_property name="ObjectShortName">led17_g</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/led17_b" type="logic">
-            <obj_property name="ElementShortName">led17_b</obj_property>
-            <obj_property name="ObjectShortName">led17_b</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/ca" type="logic">
-            <obj_property name="ElementShortName">ca</obj_property>
-            <obj_property name="ObjectShortName">ca</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/cb" type="logic">
-            <obj_property name="ElementShortName">cb</obj_property>
-            <obj_property name="ObjectShortName">cb</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/cc" type="logic">
-            <obj_property name="ElementShortName">cc</obj_property>
-            <obj_property name="ObjectShortName">cc</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/cd" type="logic">
-            <obj_property name="ElementShortName">cd</obj_property>
-            <obj_property name="ObjectShortName">cd</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/ce" type="logic">
-            <obj_property name="ElementShortName">ce</obj_property>
-            <obj_property name="ObjectShortName">ce</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/cf" type="logic">
-            <obj_property name="ElementShortName">cf</obj_property>
-            <obj_property name="ObjectShortName">cf</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/cg" type="logic">
-            <obj_property name="ElementShortName">cg</obj_property>
-            <obj_property name="ObjectShortName">cg</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/segment_i" type="array">
-            <obj_property name="ElementShortName">segment_i[6:0]</obj_property>
-            <obj_property name="ObjectShortName">segment_i[6:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/led_16_i" type="array">
-            <obj_property name="ElementShortName">led_16_i[2:0]</obj_property>
-            <obj_property name="ObjectShortName">led_16_i[2:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/led_17_i" type="array">
-            <obj_property name="ElementShortName">led_17_i[2:0]</obj_property>
-            <obj_property name="ObjectShortName">led_17_i[2:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/strobe_signals" type="array">
-            <obj_property name="ElementShortName">strobe_signals[1:0]</obj_property>
-            <obj_property name="ObjectShortName">strobe_signals[1:0]</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/emer_i" type="logic">
-            <obj_property name="ElementShortName">emer_i</obj_property>
-            <obj_property name="ObjectShortName">emer_i</obj_property>
-         </wvobject>
-         <wvobject fp_name="/TOP_tb/uut/Cabina_inst/moduli" type="array">
-            <obj_property name="ElementShortName">moduli[0:1]</obj_property>
-            <obj_property name="ObjectShortName">moduli[0:1]</obj_property>
-         </wvobject>
+      <wvobject fp_name="/TOP_tb/uut/Cabina_inst/abierto_cerrado" type="array">
+         <obj_property name="ElementShortName">abierto_cerrado[1:0]</obj_property>
+         <obj_property name="ObjectShortName">abierto_cerrado[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TOP_tb/uut/Cabina_inst/piso_destino" type="array">
+         <obj_property name="ElementShortName">piso_destino[2:0]</obj_property>
+         <obj_property name="ObjectShortName">piso_destino[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TOP_tb/uut/Cabina_inst/abre_cierra" type="array">
+         <obj_property name="ElementShortName">abre_cierra[1:0]</obj_property>
+         <obj_property name="ObjectShortName">abre_cierra[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TOP_tb/uut/Cabina_inst/sube_baja" type="array">
+         <obj_property name="ElementShortName">sube_baja[1:0]</obj_property>
+         <obj_property name="ObjectShortName">sube_baja[1:0]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group26" type="group">
       <obj_property name="label">FMS</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/TOP_tb/uut/fsm_inst/clk" type="logic">
-         <obj_property name="ElementShortName">clk</obj_property>
-         <obj_property name="ObjectShortName">clk</obj_property>
-      </wvobject>
       <wvobject fp_name="/TOP_tb/uut/fsm_inst/piso_actual" type="array">
-         <obj_property name="ElementShortName">piso_actual[2:0]</obj_property>
-         <obj_property name="ObjectShortName">piso_actual[2:0]</obj_property>
+         <obj_property name="ElementShortName">piso_actual[1:0]</obj_property>
+         <obj_property name="ObjectShortName">piso_actual[1:0]</obj_property>
       </wvobject>
       <wvobject fp_name="/TOP_tb/uut/fsm_inst/piso_dest" type="array">
          <obj_property name="ElementShortName">piso_dest[2:0]</obj_property>
@@ -291,10 +101,6 @@
       <wvobject fp_name="/TOP_tb/uut/fsm_inst/emer" type="logic">
          <obj_property name="ElementShortName">emer</obj_property>
          <obj_property name="ObjectShortName">emer</obj_property>
-      </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/fsm_inst/reset" type="logic">
-         <obj_property name="ElementShortName">reset</obj_property>
-         <obj_property name="ObjectShortName">reset</obj_property>
       </wvobject>
       <wvobject fp_name="/TOP_tb/uut/fsm_inst/abre_cierra" type="array">
          <obj_property name="ElementShortName">abre_cierra[1:0]</obj_property>
@@ -312,46 +118,33 @@
          <obj_property name="ElementShortName">E_siguiente</obj_property>
          <obj_property name="ObjectShortName">E_siguiente</obj_property>
       </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/fsm_inst/registro_piso" type="array">
-         <obj_property name="ElementShortName">registro_piso[2:0]</obj_property>
-         <obj_property name="ObjectShortName">registro_piso[2:0]</obj_property>
+      <wvobject fp_name="/TOP_tb/uut/fsm_inst/next_destino" type="array">
+         <obj_property name="ElementShortName">next_destino[1:0]</obj_property>
+         <obj_property name="ObjectShortName">next_destino[1:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TOP_tb/uut/fsm_inst/current_destino" type="array">
+         <obj_property name="ElementShortName">current_destino[1:0]</obj_property>
+         <obj_property name="ObjectShortName">current_destino[1:0]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group439" type="group">
       <obj_property name="label">Puertas</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="/TOP_tb/uut/Cabina_inst/inst_puertas/abrir_cerrar" type="array">
          <obj_property name="ElementShortName">abrir_cerrar[1:0]</obj_property>
          <obj_property name="ObjectShortName">abrir_cerrar[1:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/Cabina_inst/inst_puertas/clk" type="logic">
-         <obj_property name="ElementShortName">clk</obj_property>
-         <obj_property name="ObjectShortName">clk</obj_property>
-      </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/Cabina_inst/inst_puertas/strobe_1" type="logic">
-         <obj_property name="ElementShortName">strobe_1</obj_property>
-         <obj_property name="ObjectShortName">strobe_1</obj_property>
-      </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/Cabina_inst/inst_puertas/reset_n" type="logic">
-         <obj_property name="ElementShortName">reset_n</obj_property>
-         <obj_property name="ObjectShortName">reset_n</obj_property>
       </wvobject>
       <wvobject fp_name="/TOP_tb/uut/Cabina_inst/inst_puertas/abierto_cerrado" type="array">
          <obj_property name="ElementShortName">abierto_cerrado[1:0]</obj_property>
          <obj_property name="ObjectShortName">abierto_cerrado[1:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/Cabina_inst/inst_puertas/led" type="array">
-         <obj_property name="ElementShortName">led[15:0]</obj_property>
-         <obj_property name="ObjectShortName">led[15:0]</obj_property>
-      </wvobject>
       <wvobject fp_name="/TOP_tb/uut/Cabina_inst/inst_puertas/count_i" type="other">
          <obj_property name="ElementShortName">count_i</obj_property>
          <obj_property name="ObjectShortName">count_i</obj_property>
       </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/Cabina_inst/inst_puertas/n_leds" type="other">
-         <obj_property name="ElementShortName">n_leds</obj_property>
-         <obj_property name="ObjectShortName">n_leds</obj_property>
-      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/TOP_tb/clk_period" type="other">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
    </wvobject>
 </wave_config>

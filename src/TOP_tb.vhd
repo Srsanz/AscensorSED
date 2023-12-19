@@ -73,6 +73,13 @@ begin
         --BTNC_tb<='1';
 --        wait for 500ns;
 --        BTNR_tb<='0';
+        wait until led_tb <= "1111111111111111";
+        wait until led_tb <= "0000000000000000";
+        wait until CLK100MHZ_tb <= '1';
+        BTNR_tb <= '0';
+        BTNU_tb <= '1';
+        wait until led_tb <= "1111111111111111";
+        wait until led_tb <= "0000000000000000";
         wait;
         
     

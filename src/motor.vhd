@@ -8,7 +8,7 @@ entity motor is
            STROBE_2 : in STD_LOGIC;
            an : out std_logic_vector (0 to 7);
            CLK : in STD_LOGIC;
-           PISO : out STD_LOGIC_VECTOR (2 downto 0);
+           PISO : out STD_LOGIC_VECTOR (1 downto 0);
            SEGMENT : out STD_LOGIC_VECTOR (6 downto 0);
            LED16 : out STD_LOGIC_VECTOR (2 downto 0);
            LED17 : out STD_LOGIC_VECTOR (2 downto 0)
@@ -16,12 +16,12 @@ entity motor is
 end motor;
 
 architecture Behavioral of motor is
-signal piso_i: std_logic_vector(piso'range):= "000";
+signal piso_i: std_logic_vector(piso'range):= "00";
 
 COMPONENT DECODER_1
 generic (n_pisos: integer := 3);
 PORT(           
-           PISO : in STD_LOGIC_VECTOR (2 downto 0);
+           PISO : in STD_LOGIC_VECTOR (1 downto 0);
            an: out std_logic_vector (7 downto 0);
            SEGMENT : out STD_LOGIC_VECTOR (6 downto 0)
 );
@@ -43,7 +43,7 @@ PORT(
            UPDOWN : in STD_LOGIC_VECTOR (1 downto 0);
            reset, clk: in STD_LOGIC;
            STROBE_2 : in STD_LOGIC;
-           PISO : out STD_LOGIC_VECTOR (2 downto 0):= "000"
+           PISO : out STD_LOGIC_VECTOR (1 downto 0):= "00"
 );
 END COMPONENT;
 
