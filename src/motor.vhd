@@ -28,6 +28,8 @@ PORT(
 END COMPONENT;
 
 COMPONENT DECODER_2
+generic (n_pisos: integer := 3);
+
 PORT(
            UPDOWN : in STD_LOGIC_VECTOR (1 downto 0);
            LED16 : out STD_LOGIC_VECTOR (2 downto 0);

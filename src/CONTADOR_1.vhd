@@ -14,7 +14,7 @@ entity CONTADOR_1 is
 end CONTADOR_1;
 
 architecture Behavioral of CONTADOR_1 is
-SIGNAL cnt: integer range 0 to n_pisos;
+SIGNAL cnt: integer range 0 to n_pisos := 0;
 begin
     process(clk, RESET)
     begin
@@ -23,12 +23,16 @@ begin
         elsif rising_edge(clk) then
             IF STROBE_2 = '1' then
                 IF UPDOWN = "10" THEN
-                    if n_pisos = 3 then
-                        cnt <= cnt + 1;
+                    if n_pisos = 0 then
+                        if n_pisos /= 3 then
+                            cnt <= cnt + 1;
+                        end if;
                     end if;
                 ELSIF UPDOWN = "01" THEN
-                    if n_pisos = 0 then
-                        cnt <= cnt - 1;
+                    if n_pisos = 3 then
+                        if n_pisos /= 0 then
+                            cnt <= cnt - 1;
+                        end if;
                     end if;   
                 END IF;
             END IF;
