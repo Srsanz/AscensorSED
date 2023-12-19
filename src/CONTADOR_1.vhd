@@ -23,16 +23,12 @@ begin
         elsif rising_edge(clk) then
             IF STROBE_2 = '1' then
                 IF UPDOWN = "10" THEN
-                    if n_pisos = 0 then
-                        if n_pisos /= 3 then
-                            cnt <= cnt + 1;
-                        end if;
+                    if cnt /= 3 then
+                        cnt <= cnt + 1;
                     end if;
                 ELSIF UPDOWN = "01" THEN
-                    if n_pisos = 3 then
-                        if n_pisos /= 0 then
-                            cnt <= cnt - 1;
-                        end if;
+                    if cnt /= 0 then                    
+                        cnt <= cnt - 1;                    
                     end if;   
                 END IF;
             END IF;
@@ -42,6 +38,6 @@ begin
     PISO <= "100" when cnt = 0 else
             "101" when cnt = 1 else
             "110" when cnt = 2 else
-            "111" when cnt = 3 else
+            "111" when cnt = n_pisos else
             "000";
 end Behavioral;

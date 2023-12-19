@@ -13,12 +13,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="519.455 ns"></ZoomEndTime>
-      <Cursor1Time time="225.000 ns"></Cursor1Time>
+      <ZoomEndTime time="365.001 ns"></ZoomEndTime>
+      <Cursor1Time time="123.503 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="215"></NameColumnWidth>
-      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="102"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="10" />
    <wvobject fp_name="/motor_tb/reset_tb" type="logic">
@@ -41,6 +41,9 @@
       <obj_property name="ElementShortName">PISO_tb[2:0]</obj_property>
       <obj_property name="ObjectShortName">PISO_tb[2:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/motor_tb/LED17_tb" type="array">
       <obj_property name="ElementShortName">LED17_tb[2:0]</obj_property>
@@ -58,8 +61,8 @@
       <obj_property name="ElementShortName">an_tb[7:0]</obj_property>
       <obj_property name="ObjectShortName">an_tb[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/motor_tb/UUT/n_pisos" type="other">
-      <obj_property name="ElementShortName">n_pisos</obj_property>
-      <obj_property name="ObjectShortName">n_pisos</obj_property>
+   <wvobject fp_name="/motor_tb/UUT/INST_CONTADOR_1/cnt" type="other">
+      <obj_property name="ElementShortName">cnt</obj_property>
+      <obj_property name="ObjectShortName">cnt</obj_property>
    </wvobject>
 </wave_config>

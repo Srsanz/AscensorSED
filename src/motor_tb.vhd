@@ -100,7 +100,7 @@ BEGIN
         --WAIT FOR 50 ns; -- Allow some time for the simulation to run
 
         -- Add more stimulus as needed
-        for i in 1 to 2 loop
+        for i in 1 to 16 loop
           wait until clk_tb = '1';
         end loop;
         assert false
