@@ -13,20 +13,20 @@ entity FSM is
            sube_baja : out STD_LOGIC_VECTOR (1 downto 0));
 end FSM;
 
-    architecture fsm_ascensor of FSM is
+architecture fsm_ascensor of FSM is
 
-type estado is (E0, E1, E2, E3, E4, E5, E6);
-   signal E_actual ,E_siguiente : estado ;
-   signal registro_piso: std_logic_vector (2 downto 0):="000";
+    type estado is (E0, E1, E2, E3, E4, E5, E6);
+    signal E_actual ,E_siguiente : estado ;
+    signal registro_piso: std_logic_vector (2 downto 0):="000";
 begin
 
 sync_proc : process (clk ,E_siguiente, E_actual , reset )
-   begin
-   if ( reset = '0') then
-      E_actual <= E0;
-   elsif ( rising_edge (clk)) then
-      E_actual <= E_siguiente;
-   end if;
+    begin
+    if ( reset = '0') then
+       E_actual <= E0;
+    elsif ( rising_edge (clk)) then
+       E_actual <= E_siguiente;
+    end if;
 end process sync_proc ;
    
 fsm_ascensor : process (E_actual, piso_dest, piso_actual, emer, abierto_cerrado, registro_piso)
@@ -52,8 +52,8 @@ begin
             E_siguiente <= E2;
          elsif abierto_cerrado = "01" then
             E_siguiente <= E3;
-         else
-            E_siguiente <= E1;   
+--         else
+--            E_siguiente <= E1;   
          end if;
          
       when E2 =>

@@ -13,13 +13,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,840.168 ns"></ZoomEndTime>
-      <Cursor1Time time="2,736.402 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="5.562608 us"></ZoomEndTime>
+      <Cursor1Time time="3.000000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="180"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <NameColumnWidth column_width="177"></NameColumnWidth>
+      <ValueColumnWidth column_width="85"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="26" />
    <wvobject fp_name="/TOP_tb/CLK100MHZ_tb" type="logic">
@@ -167,16 +167,16 @@
             <obj_property name="ObjectShortName">reset_n</obj_property>
          </wvobject>
          <wvobject fp_name="/TOP_tb/uut/Cabina_inst/an" type="array">
-            <obj_property name="ElementShortName">an[7:0]</obj_property>
-            <obj_property name="ObjectShortName">an[7:0]</obj_property>
+            <obj_property name="ElementShortName">an[0:7]</obj_property>
+            <obj_property name="ObjectShortName">an[0:7]</obj_property>
          </wvobject>
          <wvobject fp_name="/TOP_tb/uut/Cabina_inst/piso_destino" type="array">
-            <obj_property name="ElementShortName">piso_destino[1:0]</obj_property>
-            <obj_property name="ObjectShortName">piso_destino[1:0]</obj_property>
+            <obj_property name="ElementShortName">piso_destino[2:0]</obj_property>
+            <obj_property name="ObjectShortName">piso_destino[2:0]</obj_property>
          </wvobject>
          <wvobject fp_name="/TOP_tb/uut/Cabina_inst/piso" type="array">
-            <obj_property name="ElementShortName">piso[1:0]</obj_property>
-            <obj_property name="ObjectShortName">piso[1:0]</obj_property>
+            <obj_property name="ElementShortName">piso[2:0]</obj_property>
+            <obj_property name="ObjectShortName">piso[2:0]</obj_property>
          </wvobject>
          <wvobject fp_name="/TOP_tb/uut/Cabina_inst/abierto_cerrado" type="array">
             <obj_property name="ElementShortName">abierto_cerrado[1:0]</obj_property>
@@ -272,59 +272,49 @@
       <obj_property name="label">FMS</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/TOP_tb/uut/fms_inst/clk" type="logic">
+      <wvobject fp_name="/TOP_tb/uut/fsm_inst/clk" type="logic">
          <obj_property name="ElementShortName">clk</obj_property>
          <obj_property name="ObjectShortName">clk</obj_property>
       </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/fms_inst/piso_actual" type="array">
-         <obj_property name="ElementShortName">piso_actual[1:0]</obj_property>
-         <obj_property name="ObjectShortName">piso_actual[1:0]</obj_property>
+      <wvobject fp_name="/TOP_tb/uut/fsm_inst/piso_actual" type="array">
+         <obj_property name="ElementShortName">piso_actual[2:0]</obj_property>
+         <obj_property name="ObjectShortName">piso_actual[2:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/fms_inst/piso_dest" type="array">
-         <obj_property name="ElementShortName">piso_dest[1:0]</obj_property>
-         <obj_property name="ObjectShortName">piso_dest[1:0]</obj_property>
-         <obj_property name="CustomSignalColor">#FF0080</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
+      <wvobject fp_name="/TOP_tb/uut/fsm_inst/piso_dest" type="array">
+         <obj_property name="ElementShortName">piso_dest[2:0]</obj_property>
+         <obj_property name="ObjectShortName">piso_dest[2:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/fms_inst/abierto_cerrado" type="array">
+      <wvobject fp_name="/TOP_tb/uut/fsm_inst/abierto_cerrado" type="array">
          <obj_property name="ElementShortName">abierto_cerrado[1:0]</obj_property>
          <obj_property name="ObjectShortName">abierto_cerrado[1:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/fms_inst/emer" type="logic">
+      <wvobject fp_name="/TOP_tb/uut/fsm_inst/emer" type="logic">
          <obj_property name="ElementShortName">emer</obj_property>
          <obj_property name="ObjectShortName">emer</obj_property>
-         <obj_property name="CustomSignalColor">#FF0000</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/fms_inst/reset" type="logic">
+      <wvobject fp_name="/TOP_tb/uut/fsm_inst/reset" type="logic">
          <obj_property name="ElementShortName">reset</obj_property>
          <obj_property name="ObjectShortName">reset</obj_property>
-         <obj_property name="CustomSignalColor">#F0E68C</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/fms_inst/abre_cierra" type="array">
+      <wvobject fp_name="/TOP_tb/uut/fsm_inst/abre_cierra" type="array">
          <obj_property name="ElementShortName">abre_cierra[1:0]</obj_property>
          <obj_property name="ObjectShortName">abre_cierra[1:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/fms_inst/sube_baja" type="array">
+      <wvobject fp_name="/TOP_tb/uut/fsm_inst/sube_baja" type="array">
          <obj_property name="ElementShortName">sube_baja[1:0]</obj_property>
          <obj_property name="ObjectShortName">sube_baja[1:0]</obj_property>
       </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/fms_inst/E_actual" type="other">
+      <wvobject fp_name="/TOP_tb/uut/fsm_inst/E_actual" type="other">
          <obj_property name="ElementShortName">E_actual</obj_property>
          <obj_property name="ObjectShortName">E_actual</obj_property>
-         <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/fms_inst/E_siguiente" type="other">
+      <wvobject fp_name="/TOP_tb/uut/fsm_inst/E_siguiente" type="other">
          <obj_property name="ElementShortName">E_siguiente</obj_property>
          <obj_property name="ObjectShortName">E_siguiente</obj_property>
-         <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
-         <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
-      <wvobject fp_name="/TOP_tb/uut/fms_inst/registro_piso" type="array">
-         <obj_property name="ElementShortName">registro_piso[1:0]</obj_property>
-         <obj_property name="ObjectShortName">registro_piso[1:0]</obj_property>
+      <wvobject fp_name="/TOP_tb/uut/fsm_inst/registro_piso" type="array">
+         <obj_property name="ElementShortName">registro_piso[2:0]</obj_property>
+         <obj_property name="ObjectShortName">registro_piso[2:0]</obj_property>
       </wvobject>
    </wvobject>
    <wvobject fp_name="group439" type="group">

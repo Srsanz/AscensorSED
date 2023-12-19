@@ -60,8 +60,9 @@ signal led_16_i: std_logic_vector (2 downto 0):="000";
 signal led_17_i: std_logic_vector (2 downto 0):="000";
 signal strobe_signals : std_logic_vector(1 downto 0);
 signal emer_i: std_logic;
---constant moduli: positive_vector := (250000000, 500000000); --TIEMPOS PLACA
-constant moduli: positive_vector := (2, 5);
+--constant moduli: positive_vector := (50000000, 500000000);
+constant moduli: positive_vector := (10, 50);
+
 begin
 strobe_gen_inst : strobe_generator
         generic map (

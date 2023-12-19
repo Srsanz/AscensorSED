@@ -24,13 +24,13 @@ begin
     WITH UPDOWN SELECT
         LED16<= "010" WHEN "10",
                 "100" WHEN "01",
-                "011" WHEN "00",
+                "101" WHEN "00",
                 "111" WHEN OTHERS;
                 
      WITH UPDOWN SELECT        
         LED17<= "010" WHEN "01",
                 "100" WHEN "10",
-                "011" WHEN "00",
+                "101" WHEN "00",
                 "111" WHEN OTHERS;
                                
 end architecture dataflow;
