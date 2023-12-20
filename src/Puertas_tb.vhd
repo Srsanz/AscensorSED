@@ -32,6 +32,7 @@ begin
 
     stimulus_process:process
     begin
+        reset_n_tb <= '1';
         wait for clock_period/2;   
         while abierto_cerrado_tb /= "01" loop
             abrir_cerrar_tb <= "01";
@@ -46,7 +47,7 @@ begin
         assert abierto_cerrado_tb = "10" report "Error en la apertura" severity failure;
     
         for i in 1 to 10 loop
-            wait until clk_tb = '1';
+            wait until clk_tb <= '1';
         end loop;
     
         assert false

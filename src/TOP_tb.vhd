@@ -80,6 +80,12 @@ begin
         BTNU_tb <= '1';
         wait until led_tb <= "1111111111111111";
         wait until led_tb <= "0000000000000000";
+        for i in 1 to 10 loop
+            wait until CLK100MHZ_tb <= '1';
+        end loop;   
+        assert false
+        report "[SUCCESS]: Fin Test"
+        severity failure;
         wait;
         
     

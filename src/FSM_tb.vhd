@@ -12,7 +12,7 @@ architecture tb_arch of FSM_Testbench is
     component FSM is
         Port (
             clk : in STD_LOGIC;
-            piso_actual : in STD_LOGIC_VECTOR (2 downto 0);
+            piso_actual : in STD_LOGIC_VECTOR (1 downto 0);
             piso_dest : in STD_LOGIC_VECTOR (2 downto 0);
             abierto_cerrado : in STD_LOGIC_VECTOR (1 downto 0);
             emer : in STD_LOGIC;
@@ -24,7 +24,8 @@ architecture tb_arch of FSM_Testbench is
 
     -- Signals Declaration
     signal clk_tb : STD_LOGIC := '0';
-    signal piso_actual_tb, piso_dest_tb:STD_LOGIC_VECTOR (2 downto 0) := "100"; 
+    signal piso_actual_tb: STD_LOGIC_VECTOR (1 downto 0) := "00";  
+    signal piso_dest_tb:STD_LOGIC_VECTOR (2 downto 0) := "000"; 
     signal abierto_cerrado_tb : STD_LOGIC_VECTOR (1 downto 0) := "10";
     signal emer_tb, reset_tb : STD_LOGIC := '0';
     signal abre_cierra_tb, sube_baja_tb : STD_LOGIC_VECTOR (1 downto 0);
@@ -65,9 +66,9 @@ begin
         wait for clock_period;        
         abierto_cerrado_tb <= "01";
         wait for clock_period;
-        piso_actual_tb <= "101";
+        piso_actual_tb <= "01";
         wait for clock_period;
-        piso_actual_tb <= "110";
+        piso_actual_tb <= "10";
         wait for clock_period * 2;
         abierto_cerrado_tb <= "10";
         wait for clock_period; 
@@ -81,9 +82,9 @@ begin
         wait for clock_period;
         abierto_cerrado_tb <= "01";
         wait for clock_period;
-        piso_actual_tb <= "101";
+        piso_actual_tb <= "01";
         wait for clock_period;
-        piso_actual_tb <= "100";
+        piso_actual_tb <= "00";
         wait for clock_period * 2;
         abierto_cerrado_tb <= "10";
         wait for clock_period;  
