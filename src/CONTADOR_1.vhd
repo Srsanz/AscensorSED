@@ -10,11 +10,11 @@ entity CONTADOR_1 is
            STROBE_2 : in STD_LOGIC;
            clk: in std_logic;
            PISO : out STD_LOGIC_VECTOR (1 downto 0)
-           );         
+    );         
 end CONTADOR_1;
 
 architecture Behavioral of CONTADOR_1 is
-SIGNAL cnt: integer range 0 to n_pisos := 0;
+    SIGNAL cnt: integer range 0 to n_pisos := 0;
 begin
     process(clk, RESET)
     begin

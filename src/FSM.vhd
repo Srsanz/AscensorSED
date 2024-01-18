@@ -21,21 +21,20 @@ architecture fsm_ascensor of FSM is
     type estado is (E0, E1, E2, E3, E4, E5, E6);
     signal E_actual ,E_siguiente : estado ;
     signal current_destino: std_logic_vector (1 downto 0);
-    signal next_destino: std_logic_vector (current_destino'range);
-    
+    signal next_destino: std_logic_vector (current_destino'range);    
     alias but_prssd : std_logic is piso_dest(2);
     alias but_code  : std_logic_vector(1 downto 0) is piso_dest(1 downto 0);
 
 begin
-
+    
     sync_proc : process (clk ,E_siguiente, E_actual , reset )
-        begin
+    begin
         if ( reset = '0') then
-           E_actual <= E0;
-           current_destino <= "00";
+            E_actual <= E0;
+            current_destino <= "00";
         elsif ( rising_edge (clk)) then
-           E_actual <= E_siguiente;
-           current_destino <= next_destino;
+            E_actual <= E_siguiente;
+            current_destino <= next_destino;
         end if;
     end process sync_proc ;
        
@@ -63,8 +62,6 @@ begin
                     E_siguiente <= E2;
                 elsif abierto_cerrado = "01" then
                     E_siguiente <= E3;
-                --         else
-                --            E_siguiente <= E1;   
                 end if;
                 
             when E2 =>
@@ -117,5 +114,4 @@ begin
                 end if; 
         end case;
     end process fsm_ascensor ;
-
 end;

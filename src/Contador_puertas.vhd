@@ -22,22 +22,22 @@ begin
         if reset_n = '0' then
             count_i <= n_leds;
         elsif rising_edge(clk) then
-      if strobe_1 = '1' then
-        if abre_cierra = "10"  then
-            if count_i /= n_leds then --abrir
-                count_i <= count_i + 1;
-            end if;    
-        elsif abre_cierra ="01" then
-            if count_i/= 0 then  --CERRAR
-                count_i <= count_i - 1;
-            end if;     
+            if strobe_1 = '1' then
+                if abre_cierra = "10"  then
+                    if count_i /= n_leds then --abrir
+                        count_i <= count_i + 1;
+                    end if;    
+                elsif abre_cierra ="01" then
+                    if count_i/= 0 then  --CERRAR
+                        count_i <= count_i - 1;
+                    end if;     
+                end if;
+            end if;
         end if;
-      end if;
-    end if;
-end process;
-abierto_cerrado <= "10" when count_i = n_leds else
-                   "01" when count_i =      0 else
-                   "00";
---count <= std_logic_vector(to_unsigned(count_i,count'length));                                       
-count <= count_i;
+    end process;
+    abierto_cerrado <= "10" when count_i = n_leds else
+                       "01" when count_i =      0 else
+                       "00";
+    --count <= std_logic_vector(to_unsigned(count_i,count'length));                                       
+    count <= count_i;
 end Behavioral;
