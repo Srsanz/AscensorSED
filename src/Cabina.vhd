@@ -63,8 +63,8 @@ signal led_17_i: std_logic_vector (2 downto 0):="000";
 signal CE_i: std_logic_vector(1 downto 0);
 signal strobe_signals : std_logic_vector(1 downto 0);
 signal emer_i: std_logic;
---constant moduli: positive_vector := (50000000, 500000000);
-constant moduli: positive_vector := (10, 50);
+constant moduli: positive_vector := (50000000, 500000000);
+--constant moduli: positive_vector := (10, 50);
 
 begin
 ce_i(0) <= ce_1;
