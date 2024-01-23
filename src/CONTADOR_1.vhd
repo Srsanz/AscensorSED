@@ -5,16 +5,17 @@ use IEEE.numeric_std.ALL;
 
 entity CONTADOR_1 is
     generic (n_pisos: integer := 3);
-    Port (UPDOWN : in STD_LOGIC_VECTOR (1 downto 0);
-           reset: in STD_LOGIC;
-           STROBE_2 : in STD_LOGIC;
-           clk: in std_logic;
-           PISO : out STD_LOGIC_VECTOR (1 downto 0)
-           );         
+    Port (
+        UPDOWN : in STD_LOGIC_VECTOR (1 downto 0);
+        reset: in STD_LOGIC;
+        STROBE_2 : in STD_LOGIC;
+        clk: in std_logic;
+        PISO : out STD_LOGIC_VECTOR (1 downto 0)
+    );         
 end CONTADOR_1;
 
 architecture Behavioral of CONTADOR_1 is
-SIGNAL cnt: integer range 0 to n_pisos := 0;
+    SIGNAL cnt: integer range 0 to n_pisos := 0;
 begin
     process(clk, RESET)
     begin

@@ -46,7 +46,7 @@ begin
         case E_actual is
             when E0 =>
                 sube_baja   <= "00";
-                abre_cierra <= "00"; -- Salida Moore
+                abre_cierra <= "00"; 
                 ce_1 <= '0'; 
                 ce_2 <= '0';
                 if but_prssd = '1' and but_code /= piso_actual then
@@ -56,20 +56,18 @@ begin
             
             when E1 =>
                 sube_baja <= "00";
-                abre_cierra <= "01"; -- Salida Moore
+                abre_cierra <= "01"; 
                 ce_1 <= '1';
                 ce_2 <= '0';
                 if emer = '1' then
                     E_siguiente <= E2;
                 elsif abierto_cerrado = "01" then
-                    E_siguiente <= E3;
-                --         else
-                --            E_siguiente <= E1;   
+                    E_siguiente <= E3;   
                 end if;
                 
             when E2 =>
                 sube_baja <= "00";
-                abre_cierra <= "10"; -- Salida Moore
+                abre_cierra <= "10"; 
                 ce_1 <= '1';
                 ce_2 <= '0';
                 if emer = '0' then 
@@ -117,5 +115,4 @@ begin
                 end if; 
         end case;
     end process fsm_ascensor ;
-
 end;

@@ -13,13 +13,12 @@ end Botonera;
 architecture dataflow of Botonera is
     signal botones: std_logic_vector(3 downto 0);
 begin
-botones <= b3 & b2 & b1 & b0;
-    with botones select
-        piso_deseado<= "100" when "0001",
-                       "101" when "0010",
-                       "110" when "0100",
-                       "111" when "1000",
-                       "000" when others;
-
+    botones <= b3 & b2 & b1 & b0;
+        with botones select
+            piso_deseado<= "100" when "0001",
+                           "101" when "0010",
+                           "110" when "0100",
+                           "111" when "1000",
+                           "000" when others;
 end dataflow;
 

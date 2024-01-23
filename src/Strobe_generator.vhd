@@ -32,26 +32,26 @@ entity STROBE_GENERATOR is
 end STROBE_GENERATOR;
 
 architecture STRUCTURAL of STROBE_GENERATOR is
-  component TIMER is
-    generic (
-      MODULO  : positive
-    );
-    port ( 
-      RST_N  : in  std_logic;
-      CLK    : in  std_logic;
-      STROBE : out std_logic
-    );
-  end component;
+    component TIMER is
+        generic (
+            MODULO  : positive
+        );
+        port ( 
+            RST_N  : in  std_logic;
+            CLK    : in  std_logic;
+            STROBE : out std_logic
+        );
+    end component;
 begin
-  strobers: for i in MODULI'range generate
-    timer_i: TIMER
-      generic map (
-        MODULO => MODULI(i)
-      )
-      port map ( 
-        RST_N  => RST_N(i),
-        CLK    => CLK,
-        STROBE => STROBES(i)
-      );
-  end generate;
+    strobers: for i in MODULI'range generate
+        timer_i: TIMER
+            generic map (
+                MODULO => MODULI(i)
+            )
+            port map ( 
+                RST_N  => RST_N(i),
+                CLK    => CLK,
+                STROBE => STROBES(i)
+            );
+    end generate;
 end STRUCTURAL;
